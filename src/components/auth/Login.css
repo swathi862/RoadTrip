@@ -1,0 +1,36 @@
+div.ui.container.login-form{
+    width: 40%
+}
+
+h2.login-heading{
+    text-align: center;
+    padding: 1em;
+}
+
+.center {
+    margin: o;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+div.login-form{
+    border: 5px ridge white;
+    border-radius: 1em;
+    /* background-image: url("https://cdn.statically.io/img/www.itl.cat/pics/b/37/374853_white-background-wallpaper.jpg"); */
+    opacity: 1;
+}
+
+div.button-row{
+    text-align: center;
+}
+
+div.register-link{
+    text-align: center;
+}
+
+body{
+    background-color: blue;
+}

@@ -1,0 +1,46 @@
+small {
+    font-size: 75%;
+  }
+  
+  header {
+    background-color:white;
+  }
+  
+  .site-title {
+    color: teal;
+    text-align: center;
+  }
+  
+  nav .container {
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: teal;
+  }
+  
+  nav .container li {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: cornsilk;
+    box-sizing: border-box;
+    background-color: teal;
+    list-style-type: none;
+  }
+  
+  nav .container a {
+    color: cornsilk;
+  }
+  
+  nav .container a:hover {
+    color: violet;
+  }
+
+  div.ui.secondary.menu{
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+    box-shadow: 0 0  0 2px rgb(255,255,255),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);
+  }

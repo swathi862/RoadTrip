@@ -1,0 +1,7 @@
+.map-marker{
+    background: none;
+    border: none;
+}
+.map-marker img {
+    width: 25px;
+}
