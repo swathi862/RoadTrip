@@ -3,7 +3,7 @@ import {Component} from 'react';
 import ReactMapGL, { Marker, NavigationControl, GeolocateControl } from 'react-map-gl';
 import ControlPanel from './control-panel'
 import Pin from './pin'
-import partyKey from '../appKeys'
+import partyKey from '../../appKeys'
 import { Container } from 'react-bootstrap'
 import './Map.css'
 

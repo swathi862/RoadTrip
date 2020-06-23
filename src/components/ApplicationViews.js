@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Home from "./home/Home";
-// import Plan from './plan/Plan'
+import Plan from './plan/Plan'
 import Explore from './explore/Explore'
 import MyTrips from './myTrips/MyTrips'
 import { Route } from "react-router-dom";
 // import Login from "./auth/Login";
-import Map from "./Map";
+// import Map from "./plan/Map";
 
 class ApplicationViews extends Component {
 	// isAuthenticated = () => localStorage.getItem("credentials") !== null;
@@ -28,7 +28,7 @@ class ApplicationViews extends Component {
           exact
           path="/plan"
           render={(props) => {
-            return <Map {...props} />;
+            return <Plan {...props} />;
           }}
         />
 

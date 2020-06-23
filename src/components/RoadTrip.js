@@ -31,6 +31,14 @@ class RoadTrip extends Component {
       })
     }
 
+    componentDidMount(){
+      if(localStorage !== null){
+        this.setState({
+          loggedIn: true
+        })
+      }
+    }
+
 
     render(){
         return(
@@ -83,7 +91,7 @@ class RoadTrip extends Component {
         {/* If they're logged in, load the nav bar and app views */}
         {this.state.loggedIn ? (
           <>
-            <NavBar />
+            <NavBar handleLoggingout={this.handleRegister} />
             <ApplicationViews />
           </>
         ) : (

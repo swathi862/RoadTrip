@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import {  Menu } from 'semantic-ui-react'
 import './NavBar.css'
 
@@ -13,6 +13,7 @@ class NavBar extends Component{
     handleLogout = (e, { name }) => {
         this.setState({ activeItem: name })
         localStorage.clear()
+        this.props.handleLoggingout()
     }
 
     render(){
@@ -25,12 +26,6 @@ class NavBar extends Component{
                 <h1 className="site-title">Roadtrip USA<br />
                 <small><em>"And so the adventure begins..."</em></small></h1>
             </header>
-
-            {/* <Navbar.Collapse className="justify-content-end">
-			// 		<Navbar.Text>
-			// 			<a href="/" onClick={()=> localStorage.clear()}>Logout</a>
-			// 		</Navbar.Text>
-			// 	</Navbar.Collapse> */}
 
                   <Menu pointing secondary>
                     <Menu.Item

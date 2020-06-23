@@ -24,13 +24,18 @@ class Login extends Component {
   registerNewUser = (evt) => {
     console.log("I'm inside the registerNewUser function")
     evt.preventDefault();
+
+   LoginManager.loginAccount(this.state.email).then(user => {
     if (
       this.state.name === "" ||
       this.state.email === "" ||
       this.state.password === ""
     ) {
       window.alert("Please input information in the fields provided below");
-    } else {
+    } else if(user.length !== 0){
+      window.alert("This email already has an account registed with it. Please register with another email.");
+    }
+    else{
       this.setState({ loadingStatus: true });
       const user = {
         name: this.state.name,
@@ -40,12 +45,13 @@ class Login extends Component {
       
       console.log(user);
       LoginManager.register(user).then(() =>
-      window.alert("Account Created Successfully")
+      window.alert(`Registered new account under ${this.state.email}`)
       );
 
       this.props.handleRegisterForm()
     }
-  };
+    })
+  }
 
 //   handleRegister = () =>{
 
