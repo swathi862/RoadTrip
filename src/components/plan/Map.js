@@ -8,6 +8,9 @@ import { Container } from 'semantic-ui-react'
 import './Map.css'
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
+import "mapbox-gl/dist/mapbox-gl.css"
+
 
 
 const geolocateStyle = {

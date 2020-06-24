@@ -9,160 +9,162 @@ import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
 import './Map.css'
 import { Container } from 'semantic-ui-react'
-import MapsManager from '../../modules/MapsManager'
-import mapboxgl from 'mapbox.gl'
+// import MapsManager from '../../modules/MapsManager'
+// import mapboxgl from 'mapbox.gl'
 // import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
+// import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [-122.662323, 45.523751], // starting position
-zoom: 12
-});
-// set the bounds of the map
-var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
-map.setMaxBounds(bounds);
 
-// initialize the map canvas to interact with later
-var canvas = map.getCanvasContainer();
+// var map = new mapboxgl.Map({
+// container: 'map',
+// style: 'mapbox://styles/mapbox/streets-v11',
+// center: [-122.662323, 45.523751], // starting position
+// zoom: 12
+// });
+// // set the bounds of the map
+// var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
+// map.setMaxBounds(bounds);
 
-// an arbitrary start will always be the same
-// only the end or destination will change
-var start = [-122.662323, 45.523751];
+// // initialize the map canvas to interact with later
+// var canvas = map.getCanvasContainer();
 
-// create a function to make a directions request
-function getRoute(end) {
-// make a directions request using cycling profile
-// an arbitrary start will always be the same
-// only the end or destination will change
-var start = [-122.662323, 45.523751];
-var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + {partyKey};
+// // an arbitrary start will always be the same
+// // only the end or destination will change
+// var start = [-122.662323, 45.523751];
 
-// make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-var req = new XMLHttpRequest();
-req.open('GET', url, true);
-req.onload = function() {
-    var json = JSON.parse(req.response);
-    var data = json.routes[0];
-    var route = data.geometry.coordinates;
-    var geojson = {
-    type: 'Feature',
-    properties: {},
-    geometry: {
-        type: 'LineString',
-        coordinates: route
-    }
-    };
-    // if the route already exists on the map, reset it using setData
-    if (map.getSource('route')) {
-    map.getSource('route').setData(geojson);
-    } else { // otherwise, make a new request
-    map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: {
-        type: 'geojson',
-        data: {
-            type: 'Feature',
-            properties: {},
-            geometry: {
-            type: 'LineString',
-            coordinates: geojson
-            }
-        }
-        },
-        layout: {
-        'line-join': 'round',
-        'line-cap': 'round'
-        },
-        paint: {
-        'line-color': '#3887be',
-        'line-width': 5,
-        'line-opacity': 0.75
-        }
-    });
-    }
-    // add turn instructions here at the end
-};
-req.send();
-}
+// // create a function to make a directions request
+// function getRoute(end) {
+// // make a directions request using cycling profile
+// // an arbitrary start will always be the same
+// // only the end or destination will change
+// var start = [-122.662323, 45.523751];
+// var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + {partyKey};
 
-map.on('load', function() {
-// make an initial directions request that
-// starts and ends at the same location
-getRoute(start);
+// // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+// var req = new XMLHttpRequest();
+// req.open('GET', url, true);
+// req.onload = function() {
+//     var json = JSON.parse(req.response);
+//     var data = json.routes[0];
+//     var route = data.geometry.coordinates;
+//     var geojson = {
+//     type: 'Feature',
+//     properties: {},
+//     geometry: {
+//         type: 'LineString',
+//         coordinates: route
+//     }
+//     };
+//     // if the route already exists on the map, reset it using setData
+//     if (map.getSource('route')) {
+//     map.getSource('route').setData(geojson);
+//     } else { // otherwise, make a new request
+//     map.addLayer({
+//         id: 'route',
+//         type: 'line',
+//         source: {
+//         type: 'geojson',
+//         data: {
+//             type: 'Feature',
+//             properties: {},
+//             geometry: {
+//             type: 'LineString',
+//             coordinates: geojson
+//             }
+//         }
+//         },
+//         layout: {
+//         'line-join': 'round',
+//         'line-cap': 'round'
+//         },
+//         paint: {
+//         'line-color': '#3887be',
+//         'line-width': 5,
+//         'line-opacity': 0.75
+//         }
+//     });
+//     }
+//     // add turn instructions here at the end
+// };
+// req.send();
+// }
 
-// Add starting point to the map
-map.addLayer({
-    id: 'point',
-    type: 'circle',
-    source: {
-    type: 'geojson',
-    data: {
-        type: 'FeatureCollection',
-        features: [{
-        type: 'Feature',
-        properties: {},
-        geometry: {
-            type: 'Point',
-            coordinates: start
-        }
-        }
-        ]
-    }
-    },
-    paint: {
-    'circle-radius': 10,
-    'circle-color': '#3887be'
-    }
-});
-map.on('click', function(e) {
-var coordsObj = e.lngLat;
-canvas.style.cursor = '';
-var coords = Object.keys(coordsObj).map(function(key) {
-    return coordsObj[key];
-});
-var end = {
-    type: 'FeatureCollection',
-    features: [{
-    type: 'Feature',
-    properties: {},
-    geometry: {
-        type: 'Point',
-        coordinates: coords
-    }
-    }
-    ]
-};
-if (map.getLayer('end')) {
-    map.getSource('end').setData(end);
-} else {
-    map.addLayer({
-    id: 'end',
-    type: 'circle',
-    source: {
-        type: 'geojson',
-        data: {
-        type: 'FeatureCollection',
-        features: [{
-            type: 'Feature',
-            properties: {},
-            geometry: {
-            type: 'Point',
-            coordinates: coords
-            }
-        }]
-        }
-    },
-    paint: {
-        'circle-radius': 10,
-        'circle-color': '#f30'
-    }
-    });
-}
-getRoute(coords);
-});
-        });
+// map.on('load', function() {
+// // make an initial directions request that
+// // starts and ends at the same location
+// getRoute(start);
+
+// // Add starting point to the map
+// map.addLayer({
+//     id: 'point',
+//     type: 'circle',
+//     source: {
+//     type: 'geojson',
+//     data: {
+//         type: 'FeatureCollection',
+//         features: [{
+//         type: 'Feature',
+//         properties: {},
+//         geometry: {
+//             type: 'Point',
+//             coordinates: start
+//         }
+//         }
+//         ]
+//     }
+//     },
+//     paint: {
+//     'circle-radius': 10,
+//     'circle-color': '#3887be'
+//     }
+// });
+// map.on('click', function(e) {
+// var coordsObj = e.lngLat;
+// canvas.style.cursor = '';
+// var coords = Object.keys(coordsObj).map(function(key) {
+//     return coordsObj[key];
+// });
+// var end = {
+//     type: 'FeatureCollection',
+//     features: [{
+//     type: 'Feature',
+//     properties: {},
+//     geometry: {
+//         type: 'Point',
+//         coordinates: coords
+//     }
+//     }
+//     ]
+// };
+// if (map.getLayer('end')) {
+//     map.getSource('end').setData(end);
+// } else {
+//     map.addLayer({
+//     id: 'end',
+//     type: 'circle',
+//     source: {
+//         type: 'geojson',
+//         data: {
+//         type: 'FeatureCollection',
+//         features: [{
+//             type: 'Feature',
+//             properties: {},
+//             geometry: {
+//             type: 'Point',
+//             coordinates: coords
+//             }
+//         }]
+//         }
+//     },
+//     paint: {
+//         'circle-radius': 10,
+//         'circle-color': '#f30'
+//     }
+//     });
+// }
+// getRoute(coords);
+// });
+        // });
 // // get the sidebar and add the instructions
 // var instructions = document.getElementById('instructions');
 // var steps = data.legs[0].steps;
@@ -198,20 +200,20 @@ class Experiment extends Component {
     searchResultLayer: null
   }
 
-  componentDidMount() {
-  const map = new mapboxgl.Map({
-    container: this.mapWrapper,
-    style: 'mapbox://styles/mapbox/streets-v10',
-    center: [-73.985664, 40.748514],
-    zoom: 12
-  });
-  const directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken,
-    unit: 'metric',
-    profile: 'mapbox/driving'
-  });
-  map.addControl(directions, 'top-left');
-}
+//   componentDidMount() {
+//   const map = new mapboxgl.Map({
+//     container: this.mapWrapper,
+//     style: 'mapbox://styles/mapbox/streets-v10',
+//     center: [-73.985664, 40.748514],
+//     zoom: 12
+//   });
+//   const directions = new MapboxDirections({
+//     accessToken: mapboxgl.accessToken,
+//     unit: 'metric',
+//     profile: 'mapbox/driving'
+//   });
+//   map.addControl(directions, 'top-left');
+// }
 
   mapRef = React.createRef()
 
