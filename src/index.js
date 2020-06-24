@@ -6,6 +6,8 @@ import RoadTrip from './components/RoadTrip'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css' ;
+// import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
+
 
 
 ReactDOM.render(

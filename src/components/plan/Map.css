@@ -5,3 +5,7 @@
 .map-marker img {
     width: 25px;
 }
+
+canvas#deckgl-overlay, div#deckgl-wrapper{
+    display: none;
+}

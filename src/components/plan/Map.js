@@ -4,8 +4,11 @@ import ReactMapGL, { Marker, NavigationControl, GeolocateControl } from 'react-m
 import ControlPanel from './control-panel'
 import Pin from './pin'
 import partyKey from '../../appKeys'
-import { Container } from 'react-bootstrap'
+import { Container } from 'semantic-ui-react'
 import './Map.css'
+import DeckGL, { GeoJsonLayer } from "deck.gl";
+import Geocoder from "react-map-gl-geocoder";
+
 
 const geolocateStyle = {
   position: 'absolute',
@@ -40,6 +43,7 @@ class Map extends Component {
       longitude: -98.28462922241255,
       zoom: 3
     },
+    searchResultLayer: null,
     marker1: {
       latitude: 29.58657398356344,
       longitude: -95.20845734741465
@@ -51,6 +55,35 @@ class Map extends Component {
     events: {}
   };
 
+  mapRef = React.createRef()
+
+  handleViewportChange = viewport => {
+    this.setState({
+      viewport: { ...this.state.viewport, ...viewport }
+    })
+  }
+
+  handleGeocoderViewportChange = viewport => {
+    const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+    return this.handleViewportChange({
+      ...viewport,
+      ...geocoderDefaultOverrides
+    });
+  };
+
+  handleOnResult = event => {
+    this.setState({
+      searchResultLayer: new GeoJsonLayer({
+        id: "search-result",
+        data: event.result.geometry,
+        getFillColor: [255, 0, 0, 128],
+        getRadius: 1000,
+        pointRadiusMinPixels: 10,
+        pointRadiusMaxPixels: 10
+      })
+    })
+  }
 
   _logDragEvent(name, event) {
     this.setState({
@@ -79,12 +112,17 @@ class Map extends Component {
     });
   };
 
+
+
   render() {
+    const { viewport, searchResultLayer} = this.state
     return (
         <Container><br/>
             <ReactMapGL
+            ref={this.mapRef}
             {...this.state.viewport} mapboxApiAccessToken={partyKey}  mapStyle="mapbox://styles/mapbox/streets-v11"                
-            onViewportChange={(viewport) => this.setState({viewport})}
+            // onViewportChange={(viewport) => this.setState({viewport})}
+            onViewportChange={this.handleViewportChange}
             >
               <Marker
                 longitude={this.state.marker1.longitude}
@@ -125,6 +163,15 @@ class Map extends Component {
                 positionOptions={{enableHighAccuracy: true}}
                 trackUserLocation={true}
                 />
+
+              <Geocoder 
+                mapRef={this.mapRef}
+                onResult={this.handleOnResult}
+                onViewportChange={this.handleGeocoderViewportChange}
+                mapboxApiAccessToken={partyKey}
+                position='top-right'
+              />
+
               {/* {
                 this.state.directions && (
                   <Layer
@@ -141,6 +188,8 @@ class Map extends Component {
                     <img src="/map-pin.png" alt="pinpoint"/>
                 </button>
             </Marker> */}
+            <DeckGL {...viewport} layers={[searchResultLayer]} />
+
         </Container>
     );
   }
