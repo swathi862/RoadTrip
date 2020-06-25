@@ -183,6 +183,11 @@ const geolocateStyle = {
     margin: 0
   };
 
+
+//build an array of longitudes and latitudes in control-panel (event?)
+//send it into state?
+//pass it to each marker?
+//getRoutes in this file or in control-panel
 class Experiment extends Component {
   state = { 
     viewport :{
@@ -262,15 +267,23 @@ class Experiment extends Component {
     this._logDragEvent('onDrag', event);
   };
 
+  coordinateArray = []
   _onMarkerDragEnd = event => {
     this._logDragEvent('onDragEnd', event);
     this.setState({
-      marker: {
+      marker1: {
         longitude: event.lngLat[0],
         latitude: event.lngLat[1]
       }
     });
   };
+
+  getRoute(){
+    var start = [];
+    var end = [];
+    var destination1=[];
+    var destination2=[];
+  }
 
     render(){
       const { viewport, searchResultLayer} = this.state

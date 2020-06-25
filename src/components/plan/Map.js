@@ -97,9 +97,18 @@ class Map extends Component {
     });
   }
 
+  coordinateArray =[]
   _onMarkerDragStart = event => {
     this._logDragEvent('onDragStart', event);
-  };
+    this.setState({
+      marker1: {
+        longitude: event.lngLat[0],
+        latitude: event.lngLat[1]
+      }
+  });
+  // this.coordinateArray.push(this.state.marker1)
+  // console.log(this.coordinateArray)
+}
 
   _onMarkerDrag = event => {
     this._logDragEvent('onDrag', event);
@@ -108,11 +117,13 @@ class Map extends Component {
   _onMarkerDragEnd = event => {
     this._logDragEvent('onDragEnd', event);
     this.setState({
-      marker: {
+      marker2: {
         longitude: event.lngLat[0],
         latitude: event.lngLat[1]
       }
     });
+    this.coordinateArray.push(this.state.marker2)
+    console.log(this.coordinateArray)
   };
 
 
@@ -136,6 +147,7 @@ class Map extends Component {
                 onDragStart={this._onMarkerDragStart}
                 onDrag={this._onMarkerDrag}
                 onDragEnd={this._onMarkerDragEnd}
+                
               >
                 <Pin size={20} />
               </Marker>
