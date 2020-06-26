@@ -40,7 +40,7 @@ class Map extends Component {
 
   state = {
     viewport: {
-      width: 1100,
+      width: 1000,
       height: 500,
       latitude: 39.61730765260464,
       longitude: -98.28462922241255,
