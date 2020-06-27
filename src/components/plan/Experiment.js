@@ -11,8 +11,8 @@ import './Map.css'
 import { Container } from 'semantic-ui-react'
 // import MapsManager from '../../modules/MapsManager'
 // import mapboxgl from 'mapbox.gl'
-// import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
-// import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
+// import MapboxDirections from 'mapbox-gl-directions'
+// import 'mapbox-gl-directions.css'
 
 
 // var map = new mapboxgl.Map({
@@ -164,8 +164,8 @@ import { Container } from 'semantic-ui-react'
 // }
 // getRoute(coords);
 // });
-        // });
-// // get the sidebar and add the instructions
+//         });
+// get the sidebar and add the instructions
 // var instructions = document.getElementById('instructions');
 // var steps = data.legs[0].steps;
 

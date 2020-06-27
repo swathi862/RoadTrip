@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Map from './Map'
 import PlanDetails from './PlanDetails'
-import Experiment2 from './Experiment2'
+// import Experiment2 from './Experiment2'
 // import Experiment from './Experiment'
 import { Grid, Container } from 'semantic-ui-react'
 
@@ -22,7 +22,7 @@ class Plan extends Component{
                     </Grid.Row>
                 </Grid>
             {/* <Experiment/> */}
-            <Experiment2 />
+            {/* <Experiment2 /> */}
             </>
         )
     }

@@ -44,7 +44,21 @@ const panes = [
             </Item>
             </Item.Group>
         </div></Tab.Pane> },
-    { menuItem: 'Completed Trips', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+    { menuItem: 'Completed Trips', render: () => <Tab.Pane>
+                <div>
+            <Item.Group>
+            <Item>
+            <Item.Image size='tiny' src={image} />
+
+            <Item.Content>
+                <Item.Header>Buck's Homebrew Stayaway</Item.Header>
+                <Item.Meta content='$1000 2 Weeks' />
+                <Item.Description>{paragraph}</Item.Description>
+            </Item.Content>
+            </Item>
+            </Item.Group>
+        </div>
+    </Tab.Pane> },
     // { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
 ]
 

@@ -10,6 +10,7 @@ import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import "mapbox-gl/dist/mapbox-gl.css"
+// import { lineString } from '@turf/helpers';
 
 
 
@@ -48,12 +49,12 @@ class Map extends Component {
     },
     searchResultLayer: null,
     marker1: {
-      latitude: 29.58657398356344,
-      longitude: -95.20845734741465
+      latitude: 39.75042544661048,
+      longitude:  -97.75039720667868
     },
     marker2: {
-      latitude: 29.58657398356344,
-      longitude: -95.20845734741465
+      latitude: 39.75042544661048,
+      longitude:  -97.75039720667868
     },
     events: {}
   };
