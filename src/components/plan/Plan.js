@@ -17,7 +17,7 @@ class Plan extends Component{
                         </Container>
                     </Grid.Column>
                     <Grid.Column floated='right' width={4}>
-                        <PlanDetails />
+                        {/* <PlanDetails /> */}
                     </Grid.Column>
                     </Grid.Row>
                 </Grid>

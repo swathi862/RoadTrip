@@ -4,12 +4,14 @@ import ReactMapGL, { Marker, NavigationControl, GeolocateControl } from 'react-m
 import ControlPanel from './control-panel'
 import Pin from './pin'
 import partyKey from '../../appKeys'
-import { Container } from 'semantic-ui-react'
+import { Grid,Container } from 'semantic-ui-react'
 import './Map.css'
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import "mapbox-gl/dist/mapbox-gl.css"
+import PlanDetails from './PlanDetails'
+import MapsManager from '../../modules/MapsManager'
 // import { lineString } from '@turf/helpers';
 
 
@@ -56,7 +58,10 @@ class Map extends Component {
       latitude: 39.75042544661048,
       longitude:  -97.75039720667868
     },
-    events: {}
+    events: {},
+    coordinateArray: [],
+    mileage: 0,
+    duration: 0
   };
 
   mapRef = React.createRef()
@@ -98,7 +103,6 @@ class Map extends Component {
     });
   }
 
-  coordinateArray =[]
   _onMarkerDragStart = event => {
     this._logDragEvent('onDragStart', event);
     this.setState({
@@ -107,31 +111,61 @@ class Map extends Component {
         latitude: event.lngLat[1]
       }
   });
-  // this.coordinateArray.push(this.state.marker1)
-  // console.log(this.coordinateArray)
 }
 
   _onMarkerDrag = event => {
     this._logDragEvent('onDrag', event);
   };
 
+  
   _onMarkerDragEnd = event => {
+    const copyOfCoordinateArray = this.state.coordinateArray
+    const coordinate ={
+      longitude: event.lngLat[0],
+      latitude: event.lngLat[1]
+    }
+    copyOfCoordinateArray.push(coordinate)
+
     this._logDragEvent('onDragEnd', event);
     this.setState({
-      marker2: {
-        longitude: event.lngLat[0],
-        latitude: event.lngLat[1]
-      }
+      marker2: coordinate,
+      coordinateArray: copyOfCoordinateArray
     });
-    this.coordinateArray.push(this.state.marker2)
-    console.log(this.coordinateArray)
+    console.log(this.state.coordinateArray)
+    if (this.state.coordinateArray.length >= 2){
+      MapsManager.getDirections(this.state.coordinateArray)
+        .then(result => {
+
+        this.setState({
+            mileage: (result.routes[0].distance)/1609,
+            duration: (result.routes[0].duration)/60,
+        })
+        })
+    
   };
+  }
+
+  getData = () => {
+    MapsManager.getDirections(this.state.coordinateArray)
+        .then(result => {
+
+        this.setState({
+            mileage: (result.routes[0].distance)/1609,
+            duration: (result.routes[0].duration)/60,
+        })
+        })
+  }
 
 
 
   render() {
     const { viewport, searchResultLayer} = this.state
     return (
+      <>
+      <Grid columns={2} divided>
+        <Grid.Row>
+        <Grid.Column >
+        <Container>
         <Container><br/>
             <ReactMapGL
             ref={this.mapRef}
@@ -172,7 +206,7 @@ class Map extends Component {
 
               <ControlPanel
                 containerComponent={this.props.containerComponent}
-                events={this.state.events}
+                // events={this.state.events}
               />
               <GeolocateControl
                 style={geolocateStyle}
@@ -205,8 +239,18 @@ class Map extends Component {
                 </button>
             </Marker> */}
             <DeckGL {...viewport} layers={[searchResultLayer]} />
-
         </Container>
+        </Container>
+        </Grid.Column>
+        <Grid.Column floated='right' width={4}>
+          {/* <PlanDetails coordinate1 = {this.state.marker1} coordinate2 = {this.state.marker2}/> */}
+          {/* {this.state.coordinateArray >= 2 ? <PlanDetails mileage={this.state.mileage} duration={this.state.duration} {...this.props}/>: ""} */}
+          <PlanDetails mileage={this.state.mileage} duration={this.state.duration} />
+          {/* <PlanDetails coordinates={this.coordinateArray.slice(-2)} /> */}
+        </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      </>
     );
   }
 }

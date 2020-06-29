@@ -6,5 +6,54 @@
       "email": "swathi@email.com",
       "password": "abc123"
     }
+  ],
+  "trips": [
+    {
+      "id": 1,
+      "name": "TN- Great Smoky Mountains",
+      "mileage": 560,
+      "duration": 800,
+      "cost": 90.80,
+      "userId": 1
+    }
+  ],
+  "trips-activities":[
+    {
+      "id":1,
+      "tripId": 1,
+      "activityId": 1
+    },
+    {
+      "id":2,
+      "tripId": 1,
+      "activityId": 4
+    },
+    {
+      "id":3,
+      "tripId": 1,
+      "activityId": 2
+    }
+  ],
+  "activities":[
+    {
+      "id":1,
+      "name": "Hiking"
+    },
+    {
+      "id":2,
+      "name": "Food/Entertainment"
+    },
+    {
+      "id":3,
+      "name": "Swimming"
+    },
+    {
+      "id":4,
+      "name": "Sightseeing"
+    },
+    {
+      "id":5,
+      "name": "Just Chilling"
+    }
   ]
 }
