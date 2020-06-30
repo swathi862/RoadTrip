@@ -3,7 +3,6 @@ import Home from "./home/Home";
 // import Plan from './plan/Plan'
 // import Explore from './explore/Explore'
 import ExploreList from './explore/ExploreList'
-import MyTrips from './myTrips/MyTrips'
 import MyTripsList from './myTrips/MyTripsList'
 import { Route } from "react-router-dom";
 // import Login from "./auth/Login";

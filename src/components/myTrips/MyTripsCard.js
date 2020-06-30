@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import { Placeholder, Item, Button } from 'semantic-ui-react'
+import { Placeholder, Item, Button, Modal, Icon, Form, TextArea, Rating, Header, Container } from 'semantic-ui-react'
 import './MyTrips.css'
 
 const paragraph = <Placeholder>
@@ -27,7 +27,30 @@ class MyTripsCard extends Component {
                     </Item.Meta>
                 <Item.Description>{paragraph}</Item.Description><br/>
                 <Button type="submit" color="blue">Details!</Button>
-                {this.props.trip.completed === false ? <Button type="submit" color="teal" onClick={()=> this.props.handleComplete(this.props.trip.id)}>Completed!</Button> : <Button type="submit" color="violet" onClick={()=> this.props.handleComplete(this.props.trip.id)}>Share!</Button> }
+                {this.props.trip.completed === false ? <Button type="submit" color="teal" onClick={()=> this.props.handleComplete(this.props.trip.id)}>Completed!</Button> : 
+                <Modal className="shareModal" size='small' trigger={<Button type="submit" color="violet" >Share!</Button>} >
+                <Header icon='share' content='Share Your Trip with the Community!' />
+                <Modal.Content>
+                  <p>
+                    Share your trip on our 'Explore' page, so you can inspire other adventurers like yourself!
+                  </p>
+                </Modal.Content>
+                <Rating icon='star' size={'massive'} defaultRating={0} maxRating={5} />
+                <Form>
+                    <Container>
+                    <TextArea placeholder="Add a Review. Share some tips and suggestions you've gathered" />
+                    </Container>
+                </Form>
+                <Modal.Actions>
+                  {/* <Button color='red' onClick={()=> this.setState({ showModal: false })}>
+                    <Icon name='remove' /> Cancel
+                  </Button> */}
+                  <Button color='green'>
+                    <Icon name='heart' /> Share
+                  </Button>
+                </Modal.Actions>
+              </Modal>
+             }
             </Item.Content>
             </Item>
             <br/>

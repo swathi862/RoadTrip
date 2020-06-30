@@ -15,7 +15,8 @@
       "duration": "800",
       "cost": "90.80",
       "userId": 1,
-      "completed": true
+      "completed": true,
+      "share": true
     },
     {
       "name": "Exploration",
@@ -24,7 +25,8 @@
       "cost": "50.74",
       "userId": "1",
       "id": 2,
-      "completed": true
+      "completed": true,
+      "share": false
     },
     {
       "name": "Exploration2",
@@ -33,6 +35,7 @@
       "cost": "47.28",
       "userId": "1",
       "completed": false,
+      "share": false,
       "id": 3
     },
     {
@@ -42,7 +45,18 @@
       "cost": "159.39",
       "userId": "1",
       "id": 4,
-      "completed": false
+      "completed": false,
+      "share": false
+    },
+    {
+      "name": "Tommy's Road trip",
+      "mileage": "560.749",
+      "duration": "639.812",
+      "cost": "49.26",
+      "completed": true,
+      "userId": "1",
+      "id": 5,
+      "share": false
     }
   ],
   "trips-activities": [

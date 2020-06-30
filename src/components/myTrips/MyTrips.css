@@ -1,3 +1,18 @@
 div.myTrips-page{
     text-align: center;
 }
+
+div.shareModal{
+    margin-left: 4em;
+}
+
+div.ui.modal{
+    text-align: center;
+    height: 50%;
+    margin: auto;
+}
+
+div.ui.small.modal.transition.visible.active.shareModal{
+    margin: 12em;
+    margin-left: 25%;
+}

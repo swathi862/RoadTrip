@@ -1,3 +1,18 @@
 div.explore-title{
     text-align: center;
 }
+
+div.search, input.prompt{
+    margin: auto !important;
+}
+
+div.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.ui.search>.results{
+    position: static;
+}
