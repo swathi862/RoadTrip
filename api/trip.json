@@ -11,48 +11,76 @@
     {
       "id": 1,
       "name": "TN- Great Smoky Mountains",
-      "mileage": 560,
-      "duration": 800,
-      "cost": 90.80,
-      "userId": 1
+      "mileage": "560",
+      "duration": "800",
+      "cost": "90.80",
+      "userId": 1,
+      "completed": true
+    },
+    {
+      "name": "Exploration",
+      "mileage": "577.538",
+      "duration": "605.352",
+      "cost": "50.74",
+      "userId": "1",
+      "id": 2,
+      "completed": true
+    },
+    {
+      "name": "Exploration2",
+      "mileage": "538.188",
+      "duration": "594.419",
+      "cost": "47.28",
+      "userId": "1",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "name": "Exploration3",
+      "mileage": "1814.288",
+      "duration": "1780.674",
+      "cost": "159.39",
+      "userId": "1",
+      "id": 4,
+      "completed": false
     }
   ],
-  "trips-activities":[
+  "trips-activities": [
     {
-      "id":1,
+      "id": 1,
       "tripId": 1,
       "activityId": 1
     },
     {
-      "id":2,
+      "id": 2,
       "tripId": 1,
       "activityId": 4
     },
     {
-      "id":3,
+      "id": 3,
       "tripId": 1,
       "activityId": 2
     }
   ],
-  "activities":[
+  "activities": [
     {
-      "id":1,
+      "id": 1,
       "name": "Hiking"
     },
     {
-      "id":2,
+      "id": 2,
       "name": "Food/Entertainment"
     },
     {
-      "id":3,
+      "id": 3,
       "name": "Swimming"
     },
     {
-      "id":4,
+      "id": 4,
       "name": "Sightseeing"
     },
     {
-      "id":5,
+      "id": 5,
       "name": "Just Chilling"
     }
   ]

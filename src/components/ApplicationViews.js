@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Home from "./home/Home";
 // import Plan from './plan/Plan'
-import Explore from './explore/Explore'
+// import Explore from './explore/Explore'
+import ExploreList from './explore/ExploreList'
 import MyTrips from './myTrips/MyTrips'
+import MyTripsList from './myTrips/MyTripsList'
 import { Route } from "react-router-dom";
 // import Login from "./auth/Login";
 import Map from "./plan/Map";
@@ -36,7 +38,7 @@ class ApplicationViews extends Component {
           exact
           path="/explore"
           render={(props) => {
-            return <Explore {...props} />;
+            return <ExploreList {...props} />;
           }}
         />
 
@@ -44,7 +46,7 @@ class ApplicationViews extends Component {
           exact
           path="/mytrips"
           render={(props) => {
-            return <MyTrips {...props} />;
+            return <MyTripsList {...props} />;
           }}
         />
 

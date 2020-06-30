@@ -17,7 +17,7 @@ export default {
     .then(result => result.json())
   },
   post(newTrip){
-    this.newTrip.userId = localStorage.getItem("userId")
+    newTrip.userId = localStorage.getItem("userId")
     return fetch(`${remoteURL}/trips`, {
         method: "POST",
         headers: {
@@ -25,6 +25,16 @@ export default {
         },
         body: JSON.stringify(newTrip)
     }).then(data => data.json())
+  },
+  patch(id){
+    return fetch(`${remoteURL}/trips/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({completed: true}),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    .then(result => result.json())
   },
   update(newTrip){
     return fetch(`${remoteURL}/trips/${newTrip.id}`, {

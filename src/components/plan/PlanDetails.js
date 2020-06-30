@@ -38,24 +38,29 @@ class Plan extends Component {
 
     constructNewTrip = (evt) => {
         evt.preventDefault();
+
         const trip = {
             name: this.state.tripName,
             mileage : round3(this.props.mileage),
             duration: round3(this.props.duration),
-            cost : (((this.props.mileage)/24.7) * 2.17)
+            cost : round2(((this.props.mileage)/24.7) * 2.17),
+            completed: false
         }
+
+        TripManager.post(trip)
+        .then(()=> window.alert("Your trip has been saved to the 'My Trips' page!"))
     }
 
     // otherDetails = []
     componentDidMount(){
-        TripManager.getActivities()
-            .then(result =>{
-                console.log(result)
-                this.setState({
-                    activities: result.name
-                })
-                console.log(this.state.activities)
-            })
+        // TripManager.getActivities()
+        //     .then(result =>{
+        //         console.log(result)
+        //         this.setState({
+        //             activities: result.name
+        //         })
+        //         console.log(this.state.activities)
+        //     })
     }
 
     render(){
@@ -66,12 +71,12 @@ class Plan extends Component {
                 <h1>Trip Details</h1></div><br/>
                 <Form.Field>
                 <label>Name</label>
-                <input placeholder='Name of Trip' />
+                <input type="text" placeholder='Name of Trip' id="tripName" onChange={this.handleFieldChange}/>
                 </Form.Field>
-                <p>Mileage: {round3(this.props.mileage)} miles </p>
-                <p>Estimated Time: {round3(this.props.duration)} minutes </p>
-                <p>Estimated Cost: $ {round2(((this.props.mileage)/24.7) * 2.17)}</p>
-                <select
+                <p><strong>Mileage:</strong> {round3(this.props.mileage)} miles </p>
+                <p><strong>Estimated Time:</strong> {round3(this.props.duration)} minutes </p>
+                <p><strong>Estimated Cost:</strong> $ {round2(((this.props.mileage)/24.7) * 2.17)}</p>
+                {/* <select
                     className="form-control"
                     placeholder="Select an employee"
                     id="activityId"
@@ -84,7 +89,7 @@ class Plan extends Component {
                         {activity.name}
                         </option>
                     )}                        
-                </select>
+                </select> */}
                 <div className="plan-stats">
                     <Button inverted color="green" type="submit" disabled={this.state.loadingStatus} onClick={this.constructNewTrip}>Save Trip</Button>
                 </div>
