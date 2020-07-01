@@ -21,7 +21,7 @@ class MyTrips extends Component {
     }
 
     handleComplete = (id) => {
-        TripManager.patch(id)
+        TripManager.patchComplete(id)
         .then(()=> {
             TripManager.getAll()
             .then(trip =>{
@@ -29,28 +29,50 @@ class MyTrips extends Component {
                     trips: trip
                 })
             })
-            window.alert("Event moved to 'Completed Trips' tab!")
+            window.alert("Trip moved to 'Completed Trips' tab!")
+        })
+    }
+
+    handleDeleteMyCompletedTrip = (id) => {
+        TripManager.patchDeleteMyTrip(id)
+        .then(()=> {
+            TripManager.getAll()
+            .then(trip =>{
+                this.setState({
+                    trips: trip
+                })
+            })
+            window.alert("Trip deleted from 'Completed Trips' tab!")
         })
     }
 
     handleShare = () => {
-        // <Modal trigger={<Button>Show Modal</Button>} closeIcon>
-        //     <Header icon='archive' content='Archive Old Messages' />
-        //     <Modal.Content>
-        //     <p>
-        //         Your inbox is getting full, would you like us to enable automatic
-        //         archiving of old messages?
-        //     </p>
-        //     </Modal.Content>
-        //     <Modal.Actions>
-        //     <Button color='red'>
-        //         <Icon name='remove' /> No
-        //     </Button>
-        //     <Button color='green'>
-        //         <Icon name='checkmark' /> Yes
-        //     </Button>
-        //     </Modal.Actions>
-        // </Modal>
+        // evt.preventDefault();
+
+        const trip = {
+            name: this.state.tripName,
+            destination: this.state.destination,
+            mileage : this.state.trips.mileage,
+            duration: this.state.trips.duration,
+            cost : this.state.trips.cost,
+            completed: this.state.trips.completed,
+            share: true,
+            rating: this.state.rating,
+            review: this.state.review
+        }
+
+        TripManager.post(trip)
+        .then(()=> window.alert("Your trip has been shared to the 'Explore' page!"))
+    }
+
+    handleDelete = (id) => {
+        this.setState({loadingStatus: true})
+        TripManager.delete(id)
+        .then(() => {
+            TripManager.getAll().then(trip =>
+            this.setState({ trips: trip}))
+            window.alert("You deleted a trip!")
+        })
     }
 
     panes = [
@@ -58,7 +80,7 @@ class MyTrips extends Component {
                 <div>
                     <Item.Group>
                     {this.state.trips.map(trip =>
-                        trip.completed === false ? <MyTripsCard key={trip.id} trip={trip} handleComplete={this.handleComplete}/> : "" 
+                        trip.completed === false ? <MyTripsCard key={trip.id} trip={trip} handleComplete={this.handleComplete} handleDelete={this.handleDelete}/> : "" 
                         )}
                     </Item.Group>
                 </div></Tab.Pane> },
@@ -66,7 +88,7 @@ class MyTrips extends Component {
                 <div>
                     <Item.Group>
                     {this.state.trips.map(trip =>
-                        trip.completed === true ? <MyTripsCard key={trip.id} trip={trip} handleComplete={this.handleComplete}/> : "" 
+                        trip.completed === true ? <MyTripsCard key={trip.id} trip={trip} handleComplete={this.handleComplete} handleDelete={this.handleDeleteMyCompletedTrip}/> : "" 
                         )}
                     </Item.Group>
                 </div></Tab.Pane> },        

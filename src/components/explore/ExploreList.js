@@ -11,7 +11,7 @@ class ExploreList extends Component {
     }
 
     componentDidMount(){
-        TripManager.getAll()
+        TripManager.getAllWithoutUserId()
         .then(trip =>{
             this.setState({
                 trips: trip

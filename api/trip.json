@@ -5,6 +5,12 @@
       "name": "Swathi",
       "email": "swathi@email.com",
       "password": "abc123"
+    },
+    {
+      "name": "User1",
+      "email": "user@email.com",
+      "password": "abc123",
+      "id": 2
     }
   ],
   "trips": [
@@ -27,38 +33,25 @@
       "mileage": "577.538",
       "duration": "605.352",
       "cost": "50.74",
-      "userId": "1",
-      "id": 2,
       "completed": true,
-      "share": false,
-      "rating": 0,
-      "review": ""
-    },
-    {
-      "name": "Exploration2",
-      "destination": "There's not a star in heaven",
-      "mileage": "538.188",
-      "duration": "594.419",
-      "cost": "47.28",
-      "userId": "1",
-      "completed": false,
-      "share": false,
-      "id": 3,
-      "rating": 0,
-      "review": ""
+      "share": true,
+      "rating": 4,
+      "review": "Great trip! Would highly recommend",
+      "id": 2,
+      "userId": null
     },
     {
       "name": "Exploration3",
-      "destination": "That we could reach",
+      "destination": "Then we're breakin' free",
       "mileage": "1814.288",
       "duration": "1780.674",
       "cost": "159.39",
-      "userId": "1",
-      "id": 4,
       "completed": false,
       "share": false,
       "rating": 0,
-      "review": ""
+      "review": "",
+      "id": 4,
+      "userId": "1"
     },
     {
       "name": "Tommy's Road trip",
@@ -67,11 +60,11 @@
       "duration": "639.812",
       "cost": "49.26",
       "completed": true,
-      "userId": "1",
+      "share": true,
+      "rating": 5,
+      "review": "Such an informative trip! Loved it",
       "id": 5,
-      "share": false,
-      "rating": 0,
-      "review": ""
+      "userId": null
     },
     {
       "name": "Home to Work",
@@ -81,10 +74,49 @@
       "cost": "13.16",
       "completed": false,
       "share": false,
-      "rating": "",
+      "rating": 0,
       "review": "",
       "userId": "1",
       "id": 6
+    },
+    {
+      "name": "WV-Pennsylvania",
+      "destination": "RoadTRIPPPP",
+      "mileage": "150.896",
+      "duration": "164.108",
+      "cost": "13.26",
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "Breathed it! Lived it! Love it!",
+      "userId": "2",
+      "id": 7
+    },
+    {
+      "name": "RoadTrip across Midwest",
+      "destination": "Lincoln  to Nebraska City",
+      "mileage": "47.910",
+      "duration": "57.654",
+      "cost": "4.21",
+      "completed": true,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "id": 8,
+      "userId": "1"
+    },
+    {
+      "name": "WV-Pennsylvania",
+      "destination": "RoadTRIPPPP",
+      "mileage": "150.896",
+      "duration": "164.108",
+      "cost": "13.26",
+      "completed": false,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "userId": "1",
+      "id": 9
     }
   ],
   "trips-activities": [

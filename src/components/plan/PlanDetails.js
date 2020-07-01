@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { Container, Button, Form } from 'semantic-ui-react'
 import './Plan.css'
-import MapsManager from '../../modules/MapsManager'
+// import MapsManager from '../../modules/MapsManager'
 import TripManager from '../../modules/TripManager';
 
 function round3(value) {
@@ -48,7 +48,7 @@ class Plan extends Component {
             cost : round2(((this.props.mileage)/24.7) * 2.17),
             completed: false,
             share: false,
-            rating: "",
+            rating: 0,
             review: ""
         }
 

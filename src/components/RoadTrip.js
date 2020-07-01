@@ -54,7 +54,7 @@ class RoadTrip extends Component {
           {/* because we changed showRegisterForm to true, when render runs again we won't print this code because the condition on line 20 will not evaluate to true */}
           
           <div className="splash-center">
-          <h1 className="splash-welcome">Welcome to <em>Roadtrip</em>!</h1>
+          <h1 className="splash-welcome">Welcome to <em>Wanderlust</em>!</h1>
           <h4 className="splash-subheading"><em>Select an option below to sign in and create your own adventures</em></h4><br/><br/>
           <Container >
           <Segment placeholder >

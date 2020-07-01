@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import { Item, Button, Placeholder, Modal, Header, Icon, Container, TextArea, Form, Rating } from 'semantic-ui-react'
 import './Explore.css'
+import TripManager from '../../modules/TripManager'
 
 const paragraph = <Placeholder>
 <Placeholder.Line />
@@ -10,6 +11,24 @@ const paragraph = <Placeholder>
 const image = 'https://dslv9ilpbe7p1.cloudfront.net/kKsOoFCQhn3CNpe69B21bw_store_banner_image.png'
 
 class ExploreCard extends Component{
+
+    handleSave = () => {
+        const trip = {
+            name: this.props.trip.name,
+            destination: this.props.trip.destination,
+            mileage : this.props.trip.mileage,
+            duration: this.props.trip.duration,
+            cost : this.props.trip.cost,
+            completed: false,
+            share: false,
+            rating: 0,
+            review: ""
+        }
+
+        TripManager.post(trip)
+        .then(()=> window.alert("This trip has been added to your 'My Trips' page!"))
+    }
+
     render(){
         return(
             <>
@@ -36,7 +55,7 @@ class ExploreCard extends Component{
                         <Rating icon='star' size={'massive'} defaultRating={this.props.trip.rating} maxRating={5} disabled/><br/><br/>
                         <Container><h3 className='review'><small>"{this.props.trip.review}"</small> </h3></Container><br/>
                         <Modal.Actions>
-                        <Button color='green'>
+                        <Button color='green' onClick={this.handleSave}>
                             <Icon name='save outline' size={'large'} /> Save to 'My Trips'
                         </Button>
                         </Modal.Actions>

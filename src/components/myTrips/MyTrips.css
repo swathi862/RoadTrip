@@ -22,3 +22,9 @@ div.ui.small.modal.transition.visible.active.myTripDetailsModal{
     margin-left: 25%;
     height: fit-content;
 }
+
+div.ui.small.modal.transition.visible.active.myTripEditDetailsModal{
+    margin: 10em;
+    margin-left: 25%;
+    height: fit-content;
+}
