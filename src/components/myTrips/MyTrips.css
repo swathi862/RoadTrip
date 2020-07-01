@@ -8,11 +8,17 @@ div.shareModal{
 
 div.ui.modal{
     text-align: center;
-    height: 50%;
+    height: fit-content;
     margin: auto;
 }
 
 div.ui.small.modal.transition.visible.active.shareModal{
     margin: 12em;
     margin-left: 25%;
+}
+
+div.ui.small.modal.transition.visible.active.myTripDetailsModal{
+    margin: 10em;
+    margin-left: 25%;
+    height: fit-content;
 }

@@ -13,6 +13,7 @@ function round2(value) {
 class Plan extends Component {
     state = {
         tripName: "",
+        destination: "",
         mileage: this.props.mileage,
         duration: this.props.duration,
         activities: [],
@@ -41,10 +42,14 @@ class Plan extends Component {
 
         const trip = {
             name: this.state.tripName,
+            destination: this.state.destination,
             mileage : round3(this.props.mileage),
             duration: round3(this.props.duration),
             cost : round2(((this.props.mileage)/24.7) * 2.17),
-            completed: false
+            completed: false,
+            share: false,
+            rating: "",
+            review: ""
         }
 
         TripManager.post(trip)
@@ -72,6 +77,10 @@ class Plan extends Component {
                 <Form.Field>
                 <label>Name</label>
                 <input type="text" placeholder='Name of Trip' id="tripName" onChange={this.handleFieldChange}/>
+                </Form.Field>
+                <Form.Field>
+                <label>Destination</label>
+                <input type="text" placeholder='Description of trip (i.e. location)' id="destination" onChange={this.handleFieldChange}/>
                 </Form.Field>
                 <p><strong>Mileage:</strong> {round3(this.props.mileage)} miles </p>
                 <p><strong>Estimated Time:</strong> {round3(this.props.duration)} minutes </p>

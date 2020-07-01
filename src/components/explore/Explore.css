@@ -16,3 +16,9 @@ div.search{
 div.ui.search>.results{
     position: static;
 }
+
+div.ui.small.modal.transition.visible.active.detailsModal{
+    margin: 10em;
+    margin-left: 25%;
+    height: fit-content;
+}

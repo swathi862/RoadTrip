@@ -9,25 +9,38 @@ const paragraph = <Placeholder>
 <Placeholder.Line />
 <Placeholder.Line />
 </Placeholder>
-const image = 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'
+const image = 'https://image.freepik.com/free-vector/empty-highway-road-desert-going-far-horizon-cartoon_33099-1473.jpg'
 
 class MyTripsCard extends Component {
     render(){
         return(
             <>
             <Item>
-            <Item.Image size='tiny' src={image} />
+            <Item.Image size='small' src={image} />
 
-            <Item.Content>
-                <Item.Header>{this.props.trip.name}</Item.Header>
-                    <Item.Meta>
-                    <span className='mileage'>{this.props.trip.mileage} Miles</span><br/>
-                    <span className='duration'>{this.props.trip.duration} Minutes</span><br/>
-                    <span className='price'>~ ${this.props.trip.cost}</span>
-                    </Item.Meta>
-                <Item.Description>{paragraph}</Item.Description><br/>
-                <Button type="submit" color="blue">Details!</Button>
+            <Item.Content><br/>
+                <Item.Header>{this.props.trip.name}</Item.Header><br/><br/>
+
+                <Modal className="myTripDetailsModal" size='small' trigger={<Button type="submit" color="blue">Details!</Button>} >
+                        <Header icon='car' content={this.props.trip.name} />
+                        <Modal.Content>
+                            <h3 className="destination"><em>{this.props.trip.destination}</em></h3>
+                            <span className='mileage'><strong>Mileage:</strong> {this.props.trip.mileage} Miles</span><br/>
+                            <span className='duration'><strong>Total Approx. Driving Time:</strong> {this.props.trip.duration} Minutes</span><br/>
+                            <span className='price'><strong>Estimated Gas Cost (with $2.17 per gallon):</strong> ${this.props.trip.cost}</span><br/>
+                        </Modal.Content>
+                        <Modal.Actions>
+                        <Button color='red' >
+                            <Icon name='remove' /> Delete
+                        </Button>
+                        <Button color='yellow'>
+                            <Icon name='pencil' /> Edit
+                        </Button>
+                        </Modal.Actions>
+                </Modal>
+                
                 {this.props.trip.completed === false ? <Button type="submit" color="teal" onClick={()=> this.props.handleComplete(this.props.trip.id)}>Completed!</Button> : 
+                this.props.trip.share === false ?
                 <Modal className="shareModal" size='small' trigger={<Button type="submit" color="violet" >Share!</Button>} >
                 <Header icon='share' content='Share Your Trip with the Community!' />
                 <Modal.Content>
@@ -49,7 +62,8 @@ class MyTripsCard extends Component {
                     <Icon name='heart' /> Share
                   </Button>
                 </Modal.Actions>
-              </Modal>
+              </Modal> 
+              : ""
              }
             </Item.Content>
             </Item>

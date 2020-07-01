@@ -28,7 +28,7 @@ class ExploreList extends Component {
                     {this.state.trips.map(trip => 
                         trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
                     )}
-                    
+
                 </Item.Group>
             </Container>
         )

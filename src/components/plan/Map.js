@@ -23,22 +23,6 @@ const geolocateStyle = {
   margin: 0
 };
 
-// let self =  this
-
-// mapbox.getDirections([
-//     start,
-//     end
-//   ], {
-//     profile: 'mapbox.driving',
-//     instructions: 'html',
-//     alternatives: false,
-//     geometry: 'geojson'
-// }).then(function(results) {
-//   let { origin, destination, routes } = results
-//   self.setState({
-//     directions: routes[0].geometry.coordinates
-//   })
-// }) 
 class Map extends Component {
 
   state = {

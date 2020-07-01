@@ -11,52 +11,80 @@
     {
       "id": 1,
       "name": "TN- Great Smoky Mountains",
+      "destination": "Nashville, hiking through Great Smokies, visit local attractions",
       "mileage": "560",
       "duration": "800",
       "cost": "90.80",
       "userId": 1,
       "completed": true,
-      "share": true
+      "share": true,
+      "rating": 4,
+      "review": "This was a life changing trip! I hiked up Mount LeConte, which was about a 14 mile round trip- exhausting, but the views were magnificent!"
     },
     {
       "name": "Exploration",
+      "destination": "Soarin' Flyin'",
       "mileage": "577.538",
       "duration": "605.352",
       "cost": "50.74",
       "userId": "1",
       "id": 2,
       "completed": true,
-      "share": false
+      "share": false,
+      "rating": 0,
+      "review": ""
     },
     {
       "name": "Exploration2",
+      "destination": "There's not a star in heaven",
       "mileage": "538.188",
       "duration": "594.419",
       "cost": "47.28",
       "userId": "1",
       "completed": false,
       "share": false,
-      "id": 3
+      "id": 3,
+      "rating": 0,
+      "review": ""
     },
     {
       "name": "Exploration3",
+      "destination": "That we could reach",
       "mileage": "1814.288",
       "duration": "1780.674",
       "cost": "159.39",
       "userId": "1",
       "id": 4,
       "completed": false,
-      "share": false
+      "share": false,
+      "rating": 0,
+      "review": ""
     },
     {
       "name": "Tommy's Road trip",
+      "destination": "If we're tryin', then we're breakin' free",
       "mileage": "560.749",
       "duration": "639.812",
       "cost": "49.26",
       "completed": true,
       "userId": "1",
       "id": 5,
-      "share": false
+      "share": false,
+      "rating": 0,
+      "review": ""
+    },
+    {
+      "name": "Home to Work",
+      "destination": "Approx. Parkersburg to Huntington",
+      "mileage": "149.808",
+      "duration": "194.123",
+      "cost": "13.16",
+      "completed": false,
+      "share": false,
+      "rating": "",
+      "review": "",
+      "userId": "1",
+      "id": 6
     }
   ],
   "trips-activities": [

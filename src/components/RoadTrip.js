@@ -4,7 +4,7 @@ import ApplicationViews from './ApplicationViews'
 import Login from './auth/Login'
 import Register from './auth/Register'
 // import { Button } from 'react-bootstrap'
-import { Button } from 'semantic-ui-react'
+import { Button, Segment, Divider, Grid, Container, Label } from 'semantic-ui-react'
 import './RoadTrip.css'
 
 
@@ -52,14 +52,36 @@ class RoadTrip extends Component {
           <div className="splash-page"></div>
           {/* When we click on the register button, we change a property in state to true. Every time we change state, render runs again and we check ALL OF THESE CONDITIONS AGAIN */}
           {/* because we changed showRegisterForm to true, when render runs again we won't print this code because the condition on line 20 will not evaluate to true */}
-      
-          <Button.Group className="splash-center">
-            <Button color='violet' onClick={() => this.setState({ showRegisterForm: true })}>
-              Register</Button>
-            <Button.Or />
+          
+          <div className="splash-center">
+          <h1 className="splash-welcome">Welcome to <em>Roadtrip</em>!</h1>
+          <h4 className="splash-subheading"><em>Select an option below to sign in and create your own adventures</em></h4><br/><br/>
+          <Container >
+          <Segment placeholder >
+            <Grid columns={2} relaxed='very' stackable>
+              <Grid.Column>
+                <Button primary onClick={() => this.setState({ showLoginForm: true })}>
+                Login</Button>
+              </Grid.Column>
+
+              <Grid.Column verticalAlign='middle'>
+                <Button color='violet' onClick={() => this.setState({ showRegisterForm: true })}>
+                Register</Button>
+              </Grid.Column>
+            </Grid>
+
+            <Divider vertical>Or</Divider>
+          </Segment>
+          </Container>
+
+          {/* <Button.Group className="splash-center" >
             <Button primary onClick={() => this.setState({ showLoginForm: true })}>
-              Login</Button>
-          </Button.Group>
+                Login</Button>
+            <Button.Or />
+            <Button color='violet' onClick={() => this.setState({ showRegisterForm: true })}>
+                Register</Button>
+          </Button.Group> */}
+          </div>
 
           </>
         ) : (
