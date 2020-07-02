@@ -130,6 +130,19 @@
       "review": "",
       "userId": "1",
       "id": 10
+    },
+    {
+      "name": "Wyoming Adventure",
+      "destination": "Cheyenne-Jackson",
+      "mileage": "434.171",
+      "duration": "410.925",
+      "cost": "38.14",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "Wyoming is so great! I highly recommend you go!!!",
+      "id": 11,
+      "userId": "1"
     }
   ],
   "trips-activities": [

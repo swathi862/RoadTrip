@@ -1,39 +1,59 @@
-import _ from 'lodash'
-import faker from 'faker'
 import React, { Component } from 'react'
-import { Search, Grid, Header, Segment, Label, Icon, Input, Form } from 'semantic-ui-react'
+import { Input, Form, Container, Item, SearchResults} from 'semantic-ui-react'
 import './Explore.css'
 import TripManager from '../../modules/TripManager'
+import ExploreCard from './ExploreCard'
 
-export default class SearchExampleStandard extends Component {
+class Search extends Component {
   state = {
     searchResults: [],
     searchText: "",
     loadingStatus: false
 }
 
-    handleFieldChange = evt => {
+    handleSearch = evt => {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
-        console.log(evt.target.value)
+        this.setState({stateToChange,
+        searchText: evt.target.value});
+        console.log(this.state.searchText)
+
+        TripManager.searchTrips(this.state.searchText).then((results)=>{
+            this.setState({searchResults: results})
+        })
+        console.log("search Results", this.state.searchResults)
+
     };
 
-  handleSearchChange = () => {
+    filterResults(trip){
+        for(let i = 0; i < this.state.searchResults.length; i++){
+            return trip.name === this.state.searchResults[i].title
+        }
+    }
 
-    TripManager.searchTrips(this.state.searchText).then((results)=>{
-        this.setState({searchResults: results})
-    })
-
-  }
 
   render() {
     return (
-    <Form>
-        <Form.Field>
-        <Input icon='search' placeholder='Search Trips' id="searchText" onChange={this.handleFieldChange} onSearchChange={this.handleSearchChange}/>
-        </Form.Field>
-    </Form>
+    <>
+        <Form className="search-bar">
+            <Form.Field>
+            <Input icon='search' placeholder='Search Trips' id="searchText" onChange={this.handleSearch} />
+            </Form.Field>
+        </Form>
+        <Item.Group>
+            {this.state.searchResults.map(trip => 
+                trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
+            )}
+        </Item.Group>
+    </>
+    // <Item.Group>
+    //     {this.state.trips.map(trip => 
+    //         trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
+    //     )}
+
+    // </Item.Group>
     )
   }
 }
+
+export default Search
