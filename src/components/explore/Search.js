@@ -1,71 +1,39 @@
 import _ from 'lodash'
 import faker from 'faker'
 import React, { Component } from 'react'
-import { Search, Grid, Header, Segment, Container } from 'semantic-ui-react'
+import { Search, Grid, Header, Segment, Label, Icon, Input, Form } from 'semantic-ui-react'
 import './Explore.css'
-
- const initialState = { isLoading: false, results: [], value: '' }
-
- const source = _.times(5, () => ({
-    title: faker.company.companyName(),
-    description: faker.company.catchPhrase(),
-    image: faker.internet.avatar(),
-    price: faker.finance.amount(0, 100, 2, '$'),
-  }))
+import TripManager from '../../modules/TripManager'
 
 export default class SearchExampleStandard extends Component {
-  state = initialState
+  state = {
+    searchResults: [],
+    searchText: "",
+    loadingStatus: false
+}
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
+    handleFieldChange = evt => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+        console.log(evt.target.value)
+    };
 
-  handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value })
+  handleSearchChange = () => {
 
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.setState(initialState)
+    TripManager.searchTrips(this.state.searchText).then((results)=>{
+        this.setState({searchResults: results})
+    })
 
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = (result) => re.test(result.title)
-
-      this.setState({
-        isLoading: false,
-        results: _.filter(source, isMatch),
-      })
-    }, 300)
   }
 
   render() {
-    const { isLoading, value, results } = this.state
-
     return (
-
-      <Grid>
-        <Grid.Column width={6}>
-          <Search
-            className="search-container"
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true,
-            })}
-            results={results}
-            value={value}
-            {...this.props}
-          />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(source, null, 2)}
-            </pre>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+    <Form>
+        <Form.Field>
+        <Input icon='search' placeholder='Search Trips' id="searchText" onChange={this.handleFieldChange} onSearchChange={this.handleSearchChange}/>
+        </Form.Field>
+    </Form>
     )
   }
 }

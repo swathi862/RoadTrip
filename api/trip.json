@@ -41,15 +41,15 @@
       "userId": null
     },
     {
-      "name": "Exploration-3",
-      "destination": "Exploration3 edit to Exploration-3",
+      "name": "Exploration3",
+      "destination": "Then we're breakin' free",
       "mileage": "1814.288",
       "duration": "1780.674",
       "cost": "159.39",
-      "completed": false,
-      "share": false,
-      "rating": 0,
-      "review": "",
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "This was great trip! However, summer was a super busy, traffic congested time to make this trip. I think completing in the Fall would have been better.",
       "id": 4,
       "userId": "1"
     },
@@ -117,6 +117,19 @@
       "review": "YEEEET",
       "id": 9,
       "userId": "1"
+    },
+    {
+      "name": "Testing Trip",
+      "destination": "Cedar Rapids, IO- St.Louis, IL",
+      "mileage": "286.991",
+      "duration": "290.636",
+      "cost": "25.21",
+      "completed": false,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "userId": "1",
+      "id": 10
     }
   ],
   "trips-activities": [
