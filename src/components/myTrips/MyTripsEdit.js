@@ -34,12 +34,7 @@ class MyTripsEdit extends Component {
       }
 
       TripManager.update(trip).then(()=>
-        TripManager.getAll().then(()=>{
-          this.setState({
-            trips: trip,
-            open: false
-          })
-        })
+        this.props.handleRefresh()
       )
   }
   

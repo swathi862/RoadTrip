@@ -41,8 +41,8 @@
       "userId": null
     },
     {
-      "name": "Exploration3",
-      "destination": "Then we're breakin' free",
+      "name": "Exploration-3",
+      "destination": "Exploration3 edit to Exploration-3",
       "mileage": "1814.288",
       "duration": "1780.674",
       "cost": "159.39",
@@ -106,17 +106,17 @@
       "userId": "1"
     },
     {
-      "name": "WV-Pennsylvania",
-      "destination": "RoadTRIPPPP",
-      "mileage": "150.896",
-      "duration": "164.108",
-      "cost": "13.26",
-      "completed": false,
-      "share": false,
-      "rating": 0,
-      "review": "",
-      "userId": "1",
-      "id": 9
+      "name": "Exploration",
+      "destination": "Soarin' Flyin'",
+      "mileage": "577.538",
+      "duration": "605.352",
+      "cost": "50.74",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "YEEEET",
+      "id": 9,
+      "userId": "1"
     }
   ],
   "trips-activities": [

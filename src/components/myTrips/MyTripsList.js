@@ -46,6 +46,15 @@ class MyTrips extends Component {
         })
     }
 
+    handleRefresh = () => {
+        TripManager.getAll().then(trip=>{
+            this.setState({
+              trips: trip,
+              open: false
+            })
+          })
+    }
+
     handleShare = () => {
         // evt.preventDefault();
 
@@ -66,7 +75,7 @@ class MyTrips extends Component {
     }
 
     handleDelete = (id) => {
-        this.setState({loadingStatus: true})
+        // this.setState({loadingStatus: true})
         TripManager.delete(id)
         .then(() => {
             TripManager.getAll().then(trip =>
@@ -80,7 +89,7 @@ class MyTrips extends Component {
                 <div>
                     <Item.Group>
                     {this.state.trips.map(trip =>
-                        trip.completed === false ? <MyTripsCard key={trip.id} trip={trip} handleComplete={this.handleComplete} handleDelete={this.handleDelete}/> : "" 
+                        trip.completed === false ? <MyTripsCard key={trip.id} trip={trip} handleComplete={this.handleComplete} handleDelete={this.handleDelete} handleRefresh={this.handleRefresh}/> : "" 
                         )}
                     </Item.Group>
                 </div></Tab.Pane> },

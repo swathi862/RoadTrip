@@ -4,11 +4,14 @@ import React, { Component } from 'react'
 import { Search, Grid, Header, Segment, Container } from 'semantic-ui-react'
 import './Explore.css'
 
-const initialState = { isLoading: false, results: [], value: '' }
+ const initialState = { isLoading: false, results: [], value: '' }
 
-const source = _.times(5, () => ({
-  title: faker.company.companyName(),
-}))
+ const source = _.times(5, () => ({
+    title: faker.company.companyName(),
+    description: faker.company.catchPhrase(),
+    image: faker.internet.avatar(),
+    price: faker.finance.amount(0, 100, 2, '$'),
+  }))
 
 export default class SearchExampleStandard extends Component {
   state = initialState

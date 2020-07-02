@@ -17,7 +17,7 @@ export default {
     return fetch(`${remoteURL}/trips/${id}`, {
         method: "DELETE"
     })
-    .then(result => result.json())
+    // .then(result => result.json())
   },
   post(newTrip){
     newTrip.userId = localStorage.getItem("userId")
