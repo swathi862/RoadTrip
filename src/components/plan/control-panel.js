@@ -8,12 +8,17 @@ function round5(value) {
 }
 
 export default class ControlPanel extends PureComponent {
+  destinationArray = []
+
   renderEvent = eventName => {
     const {events = {}} = this.props;
     const lngLat = events[eventName];
     return (
       <div key={eventName}>
-        <strong>{eventName}:</strong> {lngLat ? lngLat.map(round5).join(', ') : <em>null</em>}
+        <strong>{eventName}:</strong> {lngLat ? lngLat.map(round5).join(', ') 
+        // && this.destinationArray.push(lngLat.map(round5).join(', ')) 
+        // && console.log(this.destinationArray[this.destinationArray.length-1]) 
+        : <em>null</em>}
       </div>
     );
   };
@@ -21,7 +26,7 @@ export default class ControlPanel extends PureComponent {
   render() {
     return (
       <div className="control-panel"><br/><br/>
-        <div>{eventNames.map(this.renderEvent)}</div>
+        {/* <div>{eventNames.map(this.renderEvent)}</div> */}
       </div>
     );
   }

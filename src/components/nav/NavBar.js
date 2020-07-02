@@ -23,7 +23,7 @@ class NavBar extends Component{
             <><br/>
             <header>
             
-                <h1 className="site-title">Roadtrip USA<br />
+                <h1 className="site-title">Wanderlust<br />
                 <small><em>"And so the adventure begins..."</em></small></h1>
             </header>
 

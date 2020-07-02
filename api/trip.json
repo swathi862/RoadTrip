@@ -5,6 +5,157 @@
       "name": "Swathi",
       "email": "swathi@email.com",
       "password": "abc123"
+    },
+    {
+      "name": "User1",
+      "email": "user@email.com",
+      "password": "abc123",
+      "id": 2
+    }
+  ],
+  "trips": [
+    {
+      "id": 1,
+      "name": "TN- Great Smoky Mountains",
+      "destination": "Nashville, hiking through Great Smokies, visit local attractions",
+      "mileage": "560",
+      "duration": "800",
+      "cost": "90.80",
+      "userId": 1,
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "This was a life changing trip! I hiked up Mount LeConte, which was about a 14 mile round trip- exhausting, but the views were magnificent!"
+    },
+    {
+      "name": "Exploration",
+      "destination": "Soarin' Flyin'",
+      "mileage": "577.538",
+      "duration": "605.352",
+      "cost": "50.74",
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "Great trip! Would highly recommend",
+      "id": 2,
+      "userId": null
+    },
+    {
+      "name": "Exploration-3",
+      "destination": "Exploration3 edit to Exploration-3",
+      "mileage": "1814.288",
+      "duration": "1780.674",
+      "cost": "159.39",
+      "completed": false,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "id": 4,
+      "userId": "1"
+    },
+    {
+      "name": "Tommy's Road trip",
+      "destination": "If we're tryin', then we're breakin' free",
+      "mileage": "560.749",
+      "duration": "639.812",
+      "cost": "49.26",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "Such an informative trip! Loved it",
+      "id": 5,
+      "userId": null
+    },
+    {
+      "name": "Home to Work",
+      "destination": "Approx. Parkersburg to Huntington",
+      "mileage": "149.808",
+      "duration": "194.123",
+      "cost": "13.16",
+      "completed": false,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "userId": "1",
+      "id": 6
+    },
+    {
+      "name": "WV-Pennsylvania",
+      "destination": "RoadTRIPPPP",
+      "mileage": "150.896",
+      "duration": "164.108",
+      "cost": "13.26",
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "Breathed it! Lived it! Love it!",
+      "userId": "2",
+      "id": 7
+    },
+    {
+      "name": "RoadTrip across Midwest",
+      "destination": "Lincoln  to Nebraska City",
+      "mileage": "47.910",
+      "duration": "57.654",
+      "cost": "4.21",
+      "completed": true,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "id": 8,
+      "userId": "1"
+    },
+    {
+      "name": "Exploration",
+      "destination": "Soarin' Flyin'",
+      "mileage": "577.538",
+      "duration": "605.352",
+      "cost": "50.74",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "YEEEET",
+      "id": 9,
+      "userId": "1"
+    }
+  ],
+  "trips-activities": [
+    {
+      "id": 1,
+      "tripId": 1,
+      "activityId": 1
+    },
+    {
+      "id": 2,
+      "tripId": 1,
+      "activityId": 4
+    },
+    {
+      "id": 3,
+      "tripId": 1,
+      "activityId": 2
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "name": "Hiking"
+    },
+    {
+      "id": 2,
+      "name": "Food/Entertainment"
+    },
+    {
+      "id": 3,
+      "name": "Swimming"
+    },
+    {
+      "id": 4,
+      "name": "Sightseeing"
+    },
+    {
+      "id": 5,
+      "name": "Just Chilling"
     }
   ]
 }

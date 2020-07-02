@@ -53,30 +53,6 @@ class Login extends Component {
     })
   }
 
-//   handleRegister = () =>{
-
-//     LoginManager.loginAccount(this.state.email).then(user => {
-    
-//              localStorage.setItem("userId", user[0].id);
-//              localStorage.setItem("name", user[0].name);
-//              localStorage.setItem(
-//              "credentials", {
-//                  email: this.state.email,
-//                  password: this.state.password
-//              })
-//          )
-//          this.props.history.push("/home");
- 
-//          }
-//          else{
-//              window.alert(`I'm sorry! The password you entered does not exist with the email: ${this.state.email}  Please try again!`)
-//          }
-//      }
-     
-//      })
-//   }
-
-
   render() {
 
     return (

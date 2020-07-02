@@ -1,3 +1,24 @@
-div.explore-page{
+div.explore-title{
     text-align: center;
+}
+
+div.search, input.prompt{
+    margin: auto !important;
+}
+
+div.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.ui.search>.results{
+    position: static;
+}
+
+div.ui.small.modal.transition.visible.active.detailsModal{
+    margin: 10em;
+    margin-left: 25%;
+    height: fit-content;
 }

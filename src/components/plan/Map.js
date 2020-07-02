@@ -4,8 +4,17 @@ import ReactMapGL, { Marker, NavigationControl, GeolocateControl } from 'react-m
 import ControlPanel from './control-panel'
 import Pin from './pin'
 import partyKey from '../../appKeys'
-import { Container } from 'react-bootstrap'
+import { Grid,Container } from 'semantic-ui-react'
 import './Map.css'
+import DeckGL, { GeoJsonLayer } from "deck.gl";
+import Geocoder from "react-map-gl-geocoder";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
+import "mapbox-gl/dist/mapbox-gl.css"
+import PlanDetails from './PlanDetails'
+import MapsManager from '../../modules/MapsManager'
+// import { lineString } from '@turf/helpers';
+
+
 
 const geolocateStyle = {
   position: 'absolute',
@@ -14,43 +23,60 @@ const geolocateStyle = {
   margin: 0
 };
 
-// let self =  this
-
-// mapbox.getDirections([
-//     start,
-//     end
-//   ], {
-//     profile: 'mapbox.driving',
-//     instructions: 'html',
-//     alternatives: false,
-//     geometry: 'geojson'
-// }).then(function(results) {
-//   let { origin, destination, routes } = results
-//   self.setState({
-//     directions: routes[0].geometry.coordinates
-//   })
-// }) 
 class Map extends Component {
 
   state = {
     viewport: {
-      width: 1100,
+      width: 1000,
       height: 500,
       latitude: 39.61730765260464,
       longitude: -98.28462922241255,
       zoom: 3
     },
+    searchResultLayer: null,
     marker1: {
-      latitude: 29.58657398356344,
-      longitude: -95.20845734741465
+      latitude: 39.75042544661048,
+      longitude:  -97.75039720667868
     },
     marker2: {
-      latitude: 29.58657398356344,
-      longitude: -95.20845734741465
+      latitude: 39.75042544661048,
+      longitude:  -97.75039720667868
     },
-    events: {}
+    events: {},
+    coordinateArray: [],
+    mileage: 0,
+    duration: 0
   };
 
+  mapRef = React.createRef()
+
+  handleViewportChange = viewport => {
+    this.setState({
+      viewport: { ...this.state.viewport, ...viewport }
+    })
+  }
+
+  handleGeocoderViewportChange = viewport => {
+    const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+    return this.handleViewportChange({
+      ...viewport,
+      ...geocoderDefaultOverrides
+    });
+  };
+
+  handleOnResult = event => {
+    this.setState({
+      searchResultLayer: new GeoJsonLayer({
+        id: "search-result",
+        data: event.result.geometry,
+        getFillColor: [255, 0, 0, 128],
+        getRadius: 1000,
+        pointRadiusMinPixels: 10,
+        pointRadiusMaxPixels: 10
+      })
+    })
+  }
 
   _logDragEvent(name, event) {
     this.setState({
@@ -63,28 +89,73 @@ class Map extends Component {
 
   _onMarkerDragStart = event => {
     this._logDragEvent('onDragStart', event);
-  };
+    this.setState({
+      marker1: {
+        longitude: event.lngLat[0],
+        latitude: event.lngLat[1]
+      }
+  });
+}
 
   _onMarkerDrag = event => {
     this._logDragEvent('onDrag', event);
   };
 
+  
   _onMarkerDragEnd = event => {
+    const copyOfCoordinateArray = this.state.coordinateArray
+    const coordinate ={
+      longitude: event.lngLat[0],
+      latitude: event.lngLat[1]
+    }
+    copyOfCoordinateArray.push(coordinate)
+
     this._logDragEvent('onDragEnd', event);
     this.setState({
-      marker: {
-        longitude: event.lngLat[0],
-        latitude: event.lngLat[1]
-      }
+      marker2: coordinate,
+      coordinateArray: copyOfCoordinateArray
     });
+    console.log(this.state.coordinateArray)
+    if (this.state.coordinateArray.length >= 2){
+      MapsManager.getDirections(this.state.coordinateArray)
+        .then(result => {
+
+        this.setState({
+            mileage: (result.routes[0].distance)/1609,
+            duration: (result.routes[0].duration)/60,
+        })
+        })
+    
   };
+  }
+
+  getData = () => {
+    MapsManager.getDirections(this.state.coordinateArray)
+        .then(result => {
+
+        this.setState({
+            mileage: (result.routes[0].distance)/1609,
+            duration: (result.routes[0].duration)/60,
+        })
+        })
+  }
+
+
 
   render() {
+    const { viewport, searchResultLayer} = this.state
     return (
+      <>
+      <Grid columns={2} divided>
+        <Grid.Row>
+        <Grid.Column >
+        <Container>
         <Container><br/>
             <ReactMapGL
+            ref={this.mapRef}
             {...this.state.viewport} mapboxApiAccessToken={partyKey}  mapStyle="mapbox://styles/mapbox/streets-v11"                
-            onViewportChange={(viewport) => this.setState({viewport})}
+            // onViewportChange={(viewport) => this.setState({viewport})}
+            onViewportChange={this.handleViewportChange}
             >
               <Marker
                 longitude={this.state.marker1.longitude}
@@ -95,6 +166,7 @@ class Map extends Component {
                 onDragStart={this._onMarkerDragStart}
                 onDrag={this._onMarkerDrag}
                 onDragEnd={this._onMarkerDragEnd}
+                
               >
                 <Pin size={20} />
               </Marker>
@@ -118,13 +190,22 @@ class Map extends Component {
 
               <ControlPanel
                 containerComponent={this.props.containerComponent}
-                events={this.state.events}
+                // events={this.state.events}
               />
               <GeolocateControl
                 style={geolocateStyle}
                 positionOptions={{enableHighAccuracy: true}}
                 trackUserLocation={true}
                 />
+
+              <Geocoder 
+                mapRef={this.mapRef}
+                onResult={this.handleOnResult}
+                onViewportChange={this.handleGeocoderViewportChange}
+                mapboxApiAccessToken={partyKey}
+                position='top-right'
+              />
+
               {/* {
                 this.state.directions && (
                   <Layer
@@ -141,7 +222,19 @@ class Map extends Component {
                     <img src="/map-pin.png" alt="pinpoint"/>
                 </button>
             </Marker> */}
+            <DeckGL {...viewport} layers={[searchResultLayer]} />
         </Container>
+        </Container>
+        </Grid.Column>
+        <Grid.Column floated='right' width={4}>
+          {/* <PlanDetails coordinate1 = {this.state.marker1} coordinate2 = {this.state.marker2}/> */}
+          {/* {this.state.coordinateArray >= 2 ? <PlanDetails mileage={this.state.mileage} duration={this.state.duration} {...this.props}/>: ""} */}
+          <PlanDetails mileage={this.state.mileage} duration={this.state.duration} />
+          {/* <PlanDetails coordinates={this.coordinateArray.slice(-2)} /> */}
+        </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      </>
     );
   }
 }
