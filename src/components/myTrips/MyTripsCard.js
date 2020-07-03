@@ -68,7 +68,7 @@ class MyTripsCard extends Component {
             <Item.Content><br/>
                 <Item.Header>{this.props.trip.name}</Item.Header><br/><br/>
 
-                <Modal className="myTripDetailsModal" size='small' trigger={<Button type="submit" color="blue">Details!</Button>} >
+                <Modal className="myTripDetailsModal" size='small' trigger={<Button type="submit" color="blue"><Icon name='clipboard list' />Details</Button>} >
                         <Header icon='car' content={this.props.trip.name} />
                         <Modal.Content>
                             <h3 className="destination"><em>{this.props.trip.destination}</em></h3>
@@ -78,15 +78,15 @@ class MyTripsCard extends Component {
                         </Modal.Content>
                         <Modal.Actions>
                             <Button color='red' onClick={()=> this.props.handleDelete(this.props.trip.id)}>
-                                <Icon name='remove' /> Delete
+                                <Icon name='trash alternate' /> Delete
                             </Button>
                             <MyTripsEdit trip={this.props.trip} handleRefresh={this.props.handleRefresh}/>
                         </Modal.Actions>
                 </Modal>
                 
-                {this.props.trip.completed === false ? <Button type="submit" color="teal" onClick={()=> this.props.handleComplete(this.props.trip.id)}>Completed!</Button> : 
+                {this.props.trip.completed === false ? <Button type="submit" color="teal"  onClick={()=> this.props.handleComplete(this.props.trip.id)}> <Icon name='check' />Completed</Button> : 
                 this.props.trip.share === false ?
-                <Modal className="shareModal" size='small' trigger={<Button type="submit" color="violet" >Share!</Button>} >
+                <Modal className="shareModal" size='small' trigger={<Button type="submit" color="violet" ><Icon name='share' />Share</Button>} >
                 <Header icon='share' content='Share Your Trip with the Community!' />
                 <Modal.Content>
                   <p>

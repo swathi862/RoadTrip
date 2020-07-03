@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { NavLink } from 'react-router-dom'
-import {  Menu } from 'semantic-ui-react'
+import {  Menu, Image, Icon } from 'semantic-ui-react'
 import './NavBar.css'
 
 class NavBar extends Component{
@@ -20,12 +20,13 @@ class NavBar extends Component{
         const { activeItem } = this.state
 
         return(
-            <><br/>
-            <header>
-            
+            <>
+              <Image src={require('./wanderlust-logo.png')} centered/>
+
+            {/* <header>
                 <h1 className="site-title">Wanderlust<br />
                 <small><em>"And so the adventure begins..."</em></small></h1>
-            </header>
+            </header> */}
 
                   <Menu pointing secondary>
                     <Menu.Item
@@ -54,8 +55,16 @@ class NavBar extends Component{
                     />
                    
                     <Menu.Menu position='right'>
+                      <Menu.Item
+                          name='help'
+                          active={activeItem === 'help'}
+                          // onClick={this.handleItemClick}
+                        >
+                          <Icon name='help circle' />
+                          Help
+                        </Menu.Item>
                         <Menu.Item
-                            // as={NavLink} to="/"
+                            as={NavLink} to="/"
                             name='logout'
                             active={activeItem === 'logout'}
                             onClick={this.handleLogout}

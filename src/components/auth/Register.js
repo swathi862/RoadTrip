@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Container, Button } from 'semantic-ui-react'
+import { Form, Container, Button, Image, Label, Icon } from 'semantic-ui-react'
 import LoginManager from '../../modules/LoginManager'
 import './Login.css'
 
@@ -59,25 +59,29 @@ class Login extends Component {
       <>
       <br />
           <Container className="login-form center">
-          <h2 className="login-heading">Register New User</h2>
+          <Image className="splash-image" src={require('./wanderlust-logo.png')} centered/>
+          <h2 className="register-heading">Register New User</h2>
             <Form>
             {/* onSubmit={this.handleRegister}> */}
               <Form.Field>
-                <label>Name</label>
+                <Label as='a' color='teal' size={'large'} ribbon>Name</Label>
                 <input type="text" id="name" onChange={this.handleFieldChange} placeholder="Enter your name" required="" />
               </Form.Field>
               <Form.Field>
-                <label>Email address</label>
+                <Label as='a' color='teal' size={'large'} ribbon>Email Address</Label>
                 <input type="email" id="email" onChange={this.handleFieldChange} placeholder="Enter an email" required="" />
               </Form.Field>
               <Form.Field>
-                <label>Password</label>
+                <Label as='a' color='teal' size={'large'} ribbon>Password</Label>
                 <input type="password" id="password" onChange={this.handleFieldChange} placeholder="Password" required=""/>
               </Form.Field>
               <div className="button-row">
-                <Button positive type="submit" 
-                onClick={this.registerNewUser}
-                >Submit </Button>
+                <Button color='green' type="submit" onClick={this.registerNewUser}>
+                  <Icon name='send' size={'large'} /> Submit
+                </Button>
+                <Button color='red' onClick={()=>this.props.handleCancel()}>
+                  <Icon name='user cancel' size={'large'} /> Cancel
+                </Button>
               </div><br/>
             </Form>
           </Container>

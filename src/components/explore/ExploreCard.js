@@ -3,11 +3,7 @@ import { Item, Button, Placeholder, Modal, Header, Icon, Container, TextArea, Fo
 import './Explore.css'
 import TripManager from '../../modules/TripManager'
 
-const paragraph = <Placeholder>
-<Placeholder.Line />
-<Placeholder.Line />
-<Placeholder.Line />
-</Placeholder>
+
 const image = 'https://dslv9ilpbe7p1.cloudfront.net/kKsOoFCQhn3CNpe69B21bw_store_banner_image.png'
 
 class ExploreCard extends Component{
@@ -38,13 +34,15 @@ class ExploreCard extends Component{
                 <Item.Content>
                     <Item.Header>{this.props.trip.name}</Item.Header>
                     <Item.Meta>
-                    <span className='price'>${this.props.trip.cost}</span>
-                    <span className='duration'>{this.props.trip.duration} Minutes</span>
-                    <span className='mileage'>{this.props.trip.mileage} Miles</span>
+                    <span className='mileage'>{this.props.trip.mileage} Miles  |</span>
+                    <span className='duration'> {this.props.trip.duration} Minutes |</span>
+                    <span className='price'> ${this.props.trip.cost}</span>
                     </Item.Meta>
-                    <Item.Description>{paragraph}</Item.Description><br/>
+                    <Item.Description>
+                    <Rating icon='star' size={'large'} defaultRating={this.props.trip.rating} maxRating={5} disabled/>
+                    </Item.Description><br/>
 
-                    <Modal className="detailsModal" size='small' trigger={<Button type="submit" color="blue">Details!</Button>} >
+                    <Modal className="detailsModal" size='small' trigger={<Button type="submit" color="blue"><Icon name='clipboard list' />Details</Button>} >
                         <Header icon='car' content={this.props.trip.name} />
                         <Modal.Content>
                             <h3 className="destination"><em>{this.props.trip.destination}</em></h3>

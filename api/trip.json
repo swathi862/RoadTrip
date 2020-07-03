@@ -11,6 +11,12 @@
       "email": "user@email.com",
       "password": "abc123",
       "id": 2
+    },
+    {
+      "name": "User3",
+      "email": "user3@email.com",
+      "password": "abc123",
+      "id": 3
     }
   ],
   "trips": [
@@ -106,19 +112,6 @@
       "userId": "1"
     },
     {
-      "name": "Exploration",
-      "destination": "Soarin' Flyin'",
-      "mileage": "577.538",
-      "duration": "605.352",
-      "cost": "50.74",
-      "completed": true,
-      "share": true,
-      "rating": 5,
-      "review": "YEEEET",
-      "id": 9,
-      "userId": "1"
-    },
-    {
       "name": "Testing Trip",
       "destination": "Cedar Rapids, IO- St.Louis, IL",
       "mileage": "286.991",
@@ -138,7 +131,7 @@
       "duration": "410.925",
       "cost": "38.14",
       "completed": true,
-      "share": true,
+      "share": false,
       "rating": 5,
       "review": "Wyoming is so great! I highly recommend you go!!!",
       "id": 11,

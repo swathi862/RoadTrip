@@ -54,7 +54,7 @@ class MyTripsEdit extends Component {
           size='small'
           trigger={
             <Button color='yellow' >
-              <Icon name='pencil' /> Edit
+              <Icon name='edit' /> Edit
             </Button>
           }
         >

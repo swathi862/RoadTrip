@@ -10,7 +10,8 @@ class ExploreList extends Component {
     state={
         trips: [],
         searchResults: [],
-        searchText: " "
+        arrayToUse: [],
+        searchText: ""
     }
 
     handleSearch = evt => {
@@ -23,14 +24,19 @@ class ExploreList extends Component {
         TripManager.searchTrips(this.state.searchText).then((results)=>{
             this.setState({searchResults: results})
         })
-        console.log("search Results", this.state.searchResults)
+        console.log("search Results", this.state.searchResults.length)
 
+        if (this.state.searchResults.length > 0) {
+            this.setState({ arrayToUse : this.state.searchResults})
+        } else{
+            this.setState({ arrayToUse : this.state.trips})
+        }
+
+        console.log(this.state.searchResults.length)
     };
 
     filterResults(trip){
-        for(let i = 0; i < this.state.searchResults.length; i++){
-            return trip.name === this.state.searchResults[i].title
-        }
+        return trip.name.includes(this.state.searchText)
     }
 
     componentDidMount(){
@@ -47,17 +53,22 @@ class ExploreList extends Component {
                 <div className="explore-title">
                 <h1>Explore Trips</h1></div><br/>
                 <Search /> <br/>
-                {/* <Form className="search-bar">
-                    <Form.Field>
-                        <Input icon='search' placeholder='Search Trips' id="searchText" onChange={this.handleSearch} />
-                    </Form.Field>
-                </Form><br/> */}
-                {/* <Item.Group>
-                    {this.state.trips.map(trip => 
-                        trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
-                    )}
 
-                </Item.Group> */}
+                <Item.Group>
+                    {this.state.searchResults.length > 0 ?
+                      this.state.searchResults.map(trip => 
+                        trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "") :
+                      this.state.trips.map(trip => 
+                        trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "")
+                    }
+                </Item.Group>
+                    {/* {this.state.trips
+                    .filter(function(trip){
+                        return trip.name.includes(`${this.state.searchText}`)
+                    })
+                    .map(trip => 
+                        trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
+                    )} */}
             </Container>
         )
     }

@@ -2,9 +2,14 @@ div.ui.container.login-form{
     width: 40%
 }
 
-h2.login-heading{
+p.login-heading{
     text-align: center;
     padding: 1em;
+    font-size: x-large ;
+}
+
+h2.register-heading{
+    text-align: center;
 }
 
 .center {

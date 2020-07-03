@@ -14,21 +14,18 @@ div.splash-page{
 .splash-center{
     margin: o;
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 45%;
+    left: 45%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     margin-left: 25%
-    /* height: 90px; */
 }
 
-.splash-welcome{
-    margin-left: 8%;
-}
 
 .splash-subheading{
-    margin-left: 3%;
+    margin-left: 10%;
 }
+
 
 .button-background{
     background-color: white;
@@ -37,6 +34,7 @@ div.splash-page{
 div.ui.placeholder.segment {
     min-height: 10rem;
     width: 40%;
+    margin-left: 5%;
 }
 
 div.ui.container{

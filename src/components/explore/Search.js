@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Form, Container, Item, SearchResults} from 'semantic-ui-react'
+import { Input, Form, Item } from 'semantic-ui-react'
 import './Explore.css'
 import TripManager from '../../modules/TripManager'
 import ExploreCard from './ExploreCard'
@@ -40,18 +40,12 @@ class Search extends Component {
             <Input icon='search' placeholder='Search Trips' id="searchText" onChange={this.handleSearch} />
             </Form.Field>
         </Form>
-        <Item.Group>
+        {/* <Item.Group>
             {this.state.searchResults.map(trip => 
                 trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
             )}
-        </Item.Group>
+        </Item.Group> */}
     </>
-    // <Item.Group>
-    //     {this.state.trips.map(trip => 
-    //         trip.share === true ? <ExploreCard key={trip.id} trip={trip}/> : "" 
-    //     )}
-
-    // </Item.Group>
     )
   }
 }
