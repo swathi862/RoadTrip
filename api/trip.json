@@ -21,17 +21,17 @@
   ],
   "trips": [
     {
-      "id": 1,
       "name": "TN- Great Smoky Mountains",
       "destination": "Nashville, hiking through Great Smokies, visit local attractions",
       "mileage": "560",
       "duration": "800",
       "cost": "90.80",
-      "userId": 1,
       "completed": true,
       "share": true,
-      "rating": 4,
-      "review": "This was a life changing trip! I hiked up Mount LeConte, which was about a 14 mile round trip- exhausting, but the views were magnificent!"
+      "rating": 5,
+      "review": "This was a life changing trip! I hiked up Mount LeConte, which was about a 14 mile round trip- exhausting, but the views were magnificent!",
+      "id": 1,
+      "userId": "1"
     },
     {
       "name": "Home to Work",
@@ -81,7 +81,7 @@
       "completed": true,
       "share": true,
       "rating": 5,
-      "review": "Lived it, Love it, never wanted to leave it",
+      "review": "Was such a great trip! Highly recommend",
       "id": 11,
       "userId": "1"
     },
@@ -110,6 +110,19 @@
       "review": "Such a beautiful place!!! Would highly recommend- the views are to die for!",
       "id": 13,
       "userId": null
+    },
+    {
+      "name": "Exploring Nebraska",
+      "destination": "to Vermillion, NB",
+      "mileage": "253.022",
+      "duration": "299.129",
+      "cost": "22.23",
+      "completed": false,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "userId": "1",
+      "id": 14
     }
   ],
   "trips-activities": [

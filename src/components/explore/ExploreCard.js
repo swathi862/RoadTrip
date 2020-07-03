@@ -38,7 +38,7 @@ class ExploreCard extends Component{
                     <span className='duration'> {this.props.trip.duration} Minutes |</span>
                     <span className='price'> ${this.props.trip.cost}</span>
                     </Item.Meta>
-                    <Item.Description>
+                    <Item.Description className="rating">
                     <Rating icon='star' size={'large'} defaultRating={this.props.trip.rating} maxRating={5} disabled/>
                     </Item.Description><br/>
 

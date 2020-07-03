@@ -35,3 +35,7 @@ input#searchText{
 .ui.form.search-bar .field {
     margin-bottom: 0;
 }
+
+div.description.rating{
+    text-align: left;
+}

@@ -57,7 +57,6 @@ class NavBar extends Component{
                           onClick={this.handleItemClick}
                         >
                           <Icon name='help circle' />
-                          Help
                         </Menu.Item>
                         <Menu.Item
                             as={NavLink} to="/"

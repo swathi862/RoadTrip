@@ -122,7 +122,7 @@ class Help extends Component{
     render(){
         return(
             <Container><br/><br/>
-                <h1 className="help-title">A Detailed Guide <br/> <small><em>How to use each feature</em></small></h1>
+                <h1 className="help-title"><em>"HALP!"<br/> <small>A detailed guide on how to use each feature</small></em></h1>
                 <Accordion defaultActiveIndex={0} panels={rootPanels} styled  centered/>
             </Container>
         )
