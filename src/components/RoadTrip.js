@@ -42,13 +42,14 @@ class RoadTrip extends Component {
     }
 
     componentDidMount(){
-      if(localStorage !== null){
+      console.log(localStorage)
+      if(localStorage.getItem("userId") !== null){
         this.setState({
           loggedIn: true
         })
       }else{
         this.setState({
-          loggedIn: true
+          loggedIn: false
         })
       }
     }

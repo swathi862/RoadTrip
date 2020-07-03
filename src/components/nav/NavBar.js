@@ -23,11 +23,6 @@ class NavBar extends Component{
             <>
               <Image src={require('./wanderlust-logo-one.png')} centered/>
 
-            {/* <header>
-                <h1 className="site-title">Wanderlust<br />
-                <small><em>"And so the adventure begins..."</em></small></h1>
-            </header> */}
-
                   <Menu pointing secondary>
                     <Menu.Item
                       as={NavLink} to="/home"
@@ -56,9 +51,10 @@ class NavBar extends Component{
                    
                     <Menu.Menu position='right'>
                       <Menu.Item
+                        as={NavLink} to="/help"
                           name='help'
                           active={activeItem === 'help'}
-                          // onClick={this.handleItemClick}
+                          onClick={this.handleItemClick}
                         >
                           <Icon name='help circle' />
                           Help
