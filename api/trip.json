@@ -34,45 +34,6 @@
       "review": "This was a life changing trip! I hiked up Mount LeConte, which was about a 14 mile round trip- exhausting, but the views were magnificent!"
     },
     {
-      "name": "Exploration",
-      "destination": "Soarin' Flyin'",
-      "mileage": "577.538",
-      "duration": "605.352",
-      "cost": "50.74",
-      "completed": true,
-      "share": true,
-      "rating": 4,
-      "review": "Great trip! Would highly recommend",
-      "id": 2,
-      "userId": null
-    },
-    {
-      "name": "Exploration3",
-      "destination": "Then we're breakin' free",
-      "mileage": "1814.288",
-      "duration": "1780.674",
-      "cost": "159.39",
-      "completed": true,
-      "share": true,
-      "rating": 4,
-      "review": "This was great trip! However, summer was a super busy, traffic congested time to make this trip. I think completing in the Fall would have been better.",
-      "id": 4,
-      "userId": "1"
-    },
-    {
-      "name": "Tommy's Road trip",
-      "destination": "If we're tryin', then we're breakin' free",
-      "mileage": "560.749",
-      "duration": "639.812",
-      "cost": "49.26",
-      "completed": true,
-      "share": true,
-      "rating": 5,
-      "review": "Such an informative trip! Loved it",
-      "id": 5,
-      "userId": null
-    },
-    {
       "name": "Home to Work",
       "destination": "Approx. Parkersburg to Huntington",
       "mileage": "149.808",
@@ -105,24 +66,11 @@
       "duration": "57.654",
       "cost": "4.21",
       "completed": true,
-      "share": false,
-      "rating": 0,
-      "review": "",
+      "share": true,
+      "rating": 4,
+      "review": "Midwest is TOOO flat. Their \"mountains\" are road bumps",
       "id": 8,
-      "userId": "1"
-    },
-    {
-      "name": "Testing Trip",
-      "destination": "Cedar Rapids, IO- St.Louis, IL",
-      "mileage": "286.991",
-      "duration": "290.636",
-      "cost": "25.21",
-      "completed": false,
-      "share": false,
-      "rating": 0,
-      "review": "",
-      "userId": "1",
-      "id": 10
+      "userId": null
     },
     {
       "name": "Wyoming Adventure",
@@ -131,11 +79,37 @@
       "duration": "410.925",
       "cost": "38.14",
       "completed": true,
-      "share": false,
+      "share": true,
       "rating": 5,
-      "review": "Wyoming is so great! I highly recommend you go!!!",
+      "review": "Lived it, Love it, never wanted to leave it",
       "id": 11,
       "userId": "1"
+    },
+    {
+      "name": "Midwest Exploration",
+      "destination": "Denver,CO  to Wichita, KS - hiking, skiing, food/entertainment",
+      "mileage": "523.204",
+      "duration": "505.864",
+      "cost": "45.97",
+      "completed": true,
+      "share": true,
+      "rating": 2,
+      "review": "Denver was cool. Kansas was too flat- they don't even know what a mountain is.",
+      "id": 12,
+      "userId": null
+    },
+    {
+      "name": "Exploring Utah and Wyoming",
+      "destination": "Salt Lake City, UT to Jackson, WY- hiking, food/entertainment",
+      "mileage": "291.557",
+      "duration": "347.706",
+      "cost": "25.61",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "Such a beautiful place!!! Would highly recommend- the views are to die for!",
+      "id": 13,
+      "userId": null
     }
   ],
   "trips-activities": [

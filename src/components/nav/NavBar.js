@@ -21,7 +21,7 @@ class NavBar extends Component{
 
         return(
             <>
-              <Image src={require('./wanderlust-logo.png')} centered/>
+              <Image src={require('./wanderlust-logo-one.png')} centered/>
 
             {/* <header>
                 <h1 className="site-title">Wanderlust<br />
