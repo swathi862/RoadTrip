@@ -17,6 +17,12 @@
       "email": "user3@email.com",
       "password": "abc123",
       "id": 3
+    },
+    {
+      "name": "Sowji",
+      "email": "sowji@email.com",
+      "password": "abc123",
+      "id": 4
     }
   ],
   "trips": [
@@ -123,6 +129,32 @@
       "review": "",
       "userId": "1",
       "id": 14
+    },
+    {
+      "name": "Shenanigans in Oregon",
+      "destination": "Portland, OR- Crater Lake, OR",
+      "mileage": "248.151",
+      "duration": "284.005",
+      "cost": "21.80",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "Great trip!LOOOOOOOOOOOOOOOOOve Oregon",
+      "id": 15,
+      "userId": "4"
+    },
+    {
+      "name": "WV-Pennsylvania",
+      "destination": "RoadTRIPPPP",
+      "mileage": "150.896",
+      "duration": "164.108",
+      "cost": "13.26",
+      "completed": true,
+      "share": false,
+      "rating": 0,
+      "review": "",
+      "userId": "1",
+      "id": 16
     }
   ],
   "trips-activities": [

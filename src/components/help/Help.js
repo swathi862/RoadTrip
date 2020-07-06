@@ -77,16 +77,56 @@ const ExploreContent = (
   </div>
 )
 
+const FutureTripsDetails = (
+    <Container>
+    <List>
+        <List.Item>By clicking on the 'Details' button, you can open up a modal that will list the trip name at the top followed by the trip destination, mileage, estimated travel time, and estimated travel cost. The modal will also include an 'Edit' and 'Delete' button.</List.Item>
+    </List>
+    <List bulleted>
+        
+        <List.Item><strong><u>Edit</u></strong>- By clicking on the 'Edit' button, you can open up another modal that will allow you to change the trip name at the top followed by the trip destination, which will be represented by textboxes with placeholders of its previous value. The trip's mileage, estimated travel time, and estimated travel cost are not editable at the moment. The modal will also include a 'Save Changes' button, which will update the trip's changes. </List.Item>
+        <List.Item><strong><u>Delete</u></strong>- By clicking on the 'Delete' button on the 'Details' modal, you can delete this trip from your 'Future Trips' tab and from the database.</List.Item>
+    </List>
+    </Container>
+)
+
+const FutureTripsCompleted = (
+    <Container>
+    <List>
+        <List.Item>By clicking on the 'Completed' button, you can add this trip to your 'Completed Trips' tab, by marking the trip as completed. The trip will no longer appear under 'Future Trips'.</List.Item>
+    </List>
+    </Container>
+)
 
 const FutureTripsPanels = [
-    { key: 'panel-3aa', title: 'Details', content: 'Level 3AA Contents' },
-    { key: 'panel-3ab', title: 'Completed', content: 'Level 3AB Contents' },
+    { key: 'panel-3aa', title: 'Details', content: {content: FutureTripsDetails} },
+    { key: 'panel-3ab', title: 'Completed', content: {content: FutureTripsCompleted} },
 
   ]
 
+const CompletedTripsDetails = (
+    <Container>
+    <List>
+        <List.Item>By clicking on the 'Details' button, you can open up a modal that will list the trip name at the top followed by the trip destination, mileage, estimated travel time, and estimated travel cost. The modal will also include an 'Edit' and 'Delete' button.</List.Item>
+    </List>
+    <List bulleted>
+        <List.Item><strong><u>Edit</u></strong>- By clicking on the 'Edit' button, you can open up another modal that will allow you to change the trip name at the top followed by the trip destination, which will be represented by textboxes with placeholders of its previous value. The trip's mileage, estimated travel time, and estimated travel cost are not editable at the moment. The modal will also include a 'Save Changes' button, which will update the trip's changes. </List.Item>
+        <List.Item><strong><u>Delete</u></strong>- By clicking on the 'Delete' button on the 'Details' modal, you can delete this trip from your 'Completed Trips' tab. If the trip is shared, the trip will still be visible on the 'Explore' page, but will be deleted from your 'Completed Trips' tab.</List.Item>
+    </List>
+    </Container>
+)
+
+const CompletedTripsShare = (
+    <Container>
+    <List>
+        <List.Item> By clicking on the 'Share' button, you can share this trip with other adventurers, like you! A modal titled, "Share Your Trip with the Community!", will pop up upon clicking this button. The modal will include the trip name and the option to add a rating out of 5 stars and a review. After filling out rating and review to your heart's content, you can click on the 'Share' button to add a copy of the trip to the 'Explore' page. After sharing, the trip will remain on the 'Completed Trips' tab, but will not have a 'Share' button since you've already shared it with the community.</List.Item>
+    </List>
+    </Container>
+)
+
 const CompletedTripsPanels = [
-    { key: 'panel-3ba', title: 'Details', content: 'Level 3BA Contents' },
-    { key: 'panel-3bb', title: 'Share', content: 'Level 3BB Contents' },
+    { key: 'panel-3ba', title: 'Details', content: {content: CompletedTripsDetails} },
+    { key: 'panel-3bb', title: 'Share', content: {content: CompletedTripsShare} },
   ]
 
 const FutureTripsContent = (
