@@ -8,21 +8,9 @@
     },
     {
       "name": "User1",
-      "email": "user@email.com",
+      "email": "user1@email.com",
       "password": "abc123",
       "id": 2
-    },
-    {
-      "name": "User3",
-      "email": "user3@email.com",
-      "password": "abc123",
-      "id": 3
-    },
-    {
-      "name": "Sowji",
-      "email": "sowji@email.com",
-      "password": "abc123",
-      "id": 4
     }
   ],
   "trips": [
@@ -141,20 +129,59 @@
       "rating": 5,
       "review": "Great trip!LOOOOOOOOOOOOOOOOOve Oregon",
       "id": 15,
-      "userId": "4"
+      "userId": "2"
     },
     {
-      "name": "WV-Pennsylvania",
-      "destination": "RoadTRIPPPP",
-      "mileage": "150.896",
-      "duration": "164.108",
-      "cost": "13.26",
+      "name": "Adventures out West",
+      "destination": "Aspen, CO - Salt Lake City, UT: skiing, food/entertainment",
+      "mileage": "413.621",
+      "duration": "424.321",
+      "cost": "36.34",
       "completed": true,
-      "share": false,
-      "rating": 0,
-      "review": "",
-      "userId": "1",
-      "id": 16
+      "share": true,
+      "rating": 4,
+      "review": "Wonderful views! Amazing natural parks along the way. Highly recommend",
+      "id": 16,
+      "userId": "1"
+    },
+    {
+      "name": "Trip from ID to CO",
+      "destination": "Idaho Falls to Denver",
+      "mileage": "608.410",
+      "duration": "613.637",
+      "cost": "53.45",
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "Awesome trip. Plan for several detours along route to visit unmarked trails and waterfalls. Highly recommend",
+      "id": 17,
+      "userId": "2"
+    },
+    {
+      "name": "East Coast Adventures",
+      "destination": "Birmingham, AL to Pittsburgh, PA- food/entertainment, concerts, hiking",
+      "mileage": "750.151",
+      "duration": "729.263",
+      "cost": "65.90",
+      "completed": true,
+      "share": true,
+      "rating": 4,
+      "review": "Awesome trip! Highly recommend visiting cities and attending local concerts",
+      "id": 18,
+      "userId": "2"
+    },
+    {
+      "name": "Trip from CO to WY",
+      "destination": "Denver, CO- Jackson, WY",
+      "mileage": "531.532",
+      "duration": "650.903",
+      "cost": "46.70",
+      "completed": true,
+      "share": true,
+      "rating": 5,
+      "review": "Highly recommend! Visit some parks, trails, etc.",
+      "id": 19,
+      "userId": "1"
     }
   ],
   "trips-activities": [
