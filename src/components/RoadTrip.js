@@ -4,11 +4,13 @@ import ApplicationViews from './ApplicationViews'
 import Login from './auth/Login'
 import Register from './auth/Register'
 // import { Button } from 'react-bootstrap'
-import { Button, Segment, Divider, Grid, Container, Label } from 'semantic-ui-react'
+import { Image, Button, Segment, Divider, Grid, Container } from 'semantic-ui-react'
 import './RoadTrip.css'
 
 
 class RoadTrip extends Component {
+	// isAuthenticated = () => localStorage.getItem("credentials") !== null;
+
     state = {
         showRegisterForm: false,
         showLoginForm: false,
@@ -31,10 +33,23 @@ class RoadTrip extends Component {
       })
     }
 
+    handleCancel = () => {
+      this.setState({
+        loggedIn: false,
+        showLoginForm: false,
+        showRegisterForm: false,
+      })
+    }
+
     componentDidMount(){
-      if(localStorage !== null){
+      console.log(localStorage)
+      if(localStorage.getItem("userId") !== null){
         this.setState({
           loggedIn: true
+        })
+      }else{
+        this.setState({
+          loggedIn: false
         })
       }
     }
@@ -52,10 +67,9 @@ class RoadTrip extends Component {
           <div className="splash-page"></div>
           {/* When we click on the register button, we change a property in state to true. Every time we change state, render runs again and we check ALL OF THESE CONDITIONS AGAIN */}
           {/* because we changed showRegisterForm to true, when render runs again we won't print this code because the condition on line 20 will not evaluate to true */}
-          
           <div className="splash-center">
-          <h1 className="splash-welcome">Welcome to <em>Wanderlust</em>!</h1>
-          <h4 className="splash-subheading"><em>Select an option below to sign in and create your own adventures</em></h4><br/><br/>
+          <Image className="splash-image" size='big' src={require('./welcome-to-wanderlust.png')} />
+          <p className="splash-subheading"><em><strong>Select an option below to sign in and create your own adventures</strong></em></p><br/><br/>
           <Container >
           <Segment placeholder >
             <Grid columns={2} relaxed='very' stackable>
@@ -92,7 +106,7 @@ class RoadTrip extends Component {
         {this.state.showRegisterForm ? (
           <>
           <div className="splash-page"></div>
-            <Register handleRegisterForm={this.handleRegister}/>
+            <Register handleRegisterForm={this.handleRegister} handleCancel={this.handleCancel}/>
             {/* When they click on the register Button, we would normally be updating the db and stuff. But for now we're just changing state. In this case, we're saying that they're logged in-- so now we want them to see App Views and the nav bar. We DON'T want them to see any register or login forms. */}
           </>
         ) : (
@@ -103,7 +117,7 @@ class RoadTrip extends Component {
         {this.state.showLoginForm ? (
           <>
           <div className="splash-page"></div>
-            <Login handleLoginForm={this.handleLogin} />
+            <Login handleLoginForm={this.handleLogin} handleCancel={this.handleCancel}/>
             {/* When we click the submit button on the login form, we'd normaly be storing stuff in local storage. But for now, we're just changing state so that it re-renders. This time, we want to show them the splash page and the nav bar. We DON'T want to show them either the login or register form, so we change both of those to false. */}
           </>
         ) : (

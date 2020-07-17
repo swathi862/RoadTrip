@@ -1,21 +1,16 @@
 import React, { Component } from "react";
 import Home from "./home/Home";
-// import Plan from './plan/Plan'
-// import Explore from './explore/Explore'
 import ExploreList from './explore/ExploreList'
 import MyTripsList from './myTrips/MyTripsList'
 import { Route } from "react-router-dom";
-// import Login from "./auth/Login";
 import Map from "./plan/Map";
-
+import Help from './help/Help'
 class ApplicationViews extends Component {
 	// isAuthenticated = () => localStorage.getItem("credentials") !== null;
   render() {
     
     return (
       <React.Fragment>
-
-        {/* <Route exact path="/" component={Login} /> */}
 
         <Route
           exact
@@ -48,6 +43,14 @@ class ApplicationViews extends Component {
             return <MyTripsList {...props} />;
           }}
         />
+
+        <Route
+          exact
+          path="/help"
+          render={(props) => {
+            return <Help {...props} />;
+          }}
+        />  
 
       </React.Fragment>
     );

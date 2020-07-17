@@ -14,6 +14,7 @@ class MyTrips extends Component {
     componentDidMount(){
         TripManager.getAll()
         .then(trip =>{
+            console.log("this is in component did mount")
             this.setState({
                 trips: trip
             })
@@ -25,6 +26,7 @@ class MyTrips extends Component {
         .then(()=> {
             TripManager.getAll()
             .then(trip =>{
+                console.log("we're in handle complete")
                 this.setState({
                     trips: trip
                 })
@@ -38,6 +40,7 @@ class MyTrips extends Component {
         .then(()=> {
             TripManager.getAll()
             .then(trip =>{
+                console.log("we're in delete my completed trip")
                 this.setState({
                     trips: trip
                 })
@@ -48,9 +51,9 @@ class MyTrips extends Component {
 
     handleRefresh = () => {
         TripManager.getAll().then(trip=>{
+            console.log("we're in handle refresh")
             this.setState({
               trips: trip,
-              open: false
             })
           })
     }

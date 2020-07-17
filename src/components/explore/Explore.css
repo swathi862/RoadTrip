@@ -13,12 +13,29 @@ div.search{
     flex-direction: column;
 }
 
-div.ui.search>.results{
+/* div.ui.search>.results{
     position: static;
-}
+} */
 
 div.ui.small.modal.transition.visible.active.detailsModal{
     margin: 10em;
     margin-left: 25%;
     height: fit-content;
+}
+
+.ui.form.search-bar .field, .ui.input{
+    width: 30%;
+    margin: auto;
+}
+
+input#searchText{
+    border-radius: 2em;
+}
+
+.ui.form.search-bar .field {
+    margin-bottom: 0;
+}
+
+div.description.rating{
+    text-align: left;
 }

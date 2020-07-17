@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Container, Button } from 'semantic-ui-react'
+import { Form, Container, Button, Image, Label, Icon } from 'semantic-ui-react'
 import LoginManager from '../../modules/LoginManager'
 import './Login.css'
 import { withRouter } from 'react-router'
@@ -65,18 +65,26 @@ class Login extends Component {
       <>
       <br />
           <Container className="login-form center">
-          <h2 className="login-heading">Welcome to Roadtrip!<br/><small>Please sign in</small></h2>
-            <Form onSubmit={this.handleLogin}>
+          <Image className="splash-image" src={require('./wanderlust-logo.png')} centered/>
+          <p className="login-heading"><strong>Please sign in</strong></p>
+            <Form 
+            // onSubmit={this.handleLogin}
+            >
               <Form.Field>
-                <label>Email address</label>
+                <Label as='a' color='teal' size={'large'} ribbon>Email Address</Label>
                 <input type="email" id="email" onChange={this.handleFieldChange} placeholder="Enter email" required="" />
               </Form.Field>
               <Form.Field>
-                <label>Password</label>
+                <Label as='a' color='teal' size={'large'} ribbon>Password</Label>
                 <input type="password" id="password" onChange={this.handleFieldChange} placeholder="Password" required=""/>
               </Form.Field>
               <div className="button-row">
-                <Button positive type="submit">Submit </Button>
+                <Button color='green' type="submit" onClick={this.handleLogin}>
+                  <Icon name='send' size={'large'} /> Submit
+                </Button>
+                <Button color='red' onClick={()=>this.props.handleCancel()}>
+                  <Icon name='cancel' size={'large'} /> Cancel
+                </Button>
               </div><br/>
             </Form>
           </Container>

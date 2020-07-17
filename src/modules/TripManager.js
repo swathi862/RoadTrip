@@ -13,6 +13,9 @@ export default {
   getActivities(){
     return fetch(`${remoteURL}/activities`).then(result => result.json())
   },
+  searchTrips(searchText){
+    return fetch(`${remoteURL}/trips?q=${searchText}`).then(result => result.json())
+  },
   delete(id){
     return fetch(`${remoteURL}/trips/${id}`, {
         method: "DELETE"

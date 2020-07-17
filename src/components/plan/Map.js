@@ -3,6 +3,7 @@ import {Component} from 'react';
 import ReactMapGL, { Marker, NavigationControl, GeolocateControl } from 'react-map-gl';
 import ControlPanel from './control-panel'
 import Pin from './pin'
+import Pin2 from './pin2'
 import partyKey from '../../appKeys'
 import { Grid,Container } from 'semantic-ui-react'
 import './Map.css'
@@ -28,7 +29,7 @@ class Map extends Component {
   state = {
     viewport: {
       width: 1000,
-      height: 500,
+      height: 432,
       latitude: 39.61730765260464,
       longitude: -98.28462922241255,
       zoom: 3
@@ -181,7 +182,7 @@ class Map extends Component {
                 onDrag={this._onMarkerDrag}
                 onDragEnd={this._onMarkerDragEnd}
               >
-                <Pin size={20} />
+                <Pin2 size={20} />
               </Marker>
 
               <div className="nav" >

@@ -1,71 +1,32 @@
-import _ from 'lodash'
-import faker from 'faker'
 import React, { Component } from 'react'
-import { Search, Grid, Header, Segment, Container } from 'semantic-ui-react'
+import { Input, Form, Item } from 'semantic-ui-react'
 import './Explore.css'
+import TripManager from '../../modules/TripManager'
+import ExploreCard from './ExploreCard'
 
- const initialState = { isLoading: false, results: [], value: '' }
+class Search extends Component {
 
- const source = _.times(5, () => ({
-    title: faker.company.companyName(),
-    description: faker.company.catchPhrase(),
-    image: faker.internet.avatar(),
-    price: faker.finance.amount(0, 100, 2, '$'),
-  }))
+    handleSearch = evt => {
+        evt.preventDefault()
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState({stateToChange});
 
-export default class SearchExampleStandard extends Component {
-  state = initialState
+        this.props.getSearchText(evt.target.value)
+    };
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
-
-  handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value })
-
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.setState(initialState)
-
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = (result) => re.test(result.title)
-
-      this.setState({
-        isLoading: false,
-        results: _.filter(source, isMatch),
-      })
-    }, 300)
-  }
 
   render() {
-    const { isLoading, value, results } = this.state
-
     return (
-
-      <Grid>
-        <Grid.Column width={6}>
-          <Search
-            className="search-container"
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true,
-            })}
-            results={results}
-            value={value}
-            {...this.props}
-          />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(source, null, 2)}
-            </pre>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+    <>
+        <Form className="search-bar">
+            <Form.Field>
+            <Input icon='search' placeholder='Search Trips' id="searchText" onKeyUp={this.handleSearch} />
+            </Form.Field>
+        </Form>
+    </>
     )
   }
 }
+
+export default Search
