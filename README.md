@@ -1,6 +1,6 @@
-# Wanderlust
+# ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png "Wanderlust Logo")
 
-![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Wanderlust Logo")
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
 
 ...Wanderlust is a road trip planning application designed to allow a more efficient and centralized process for users to make travel plans using an interactive map.
 
@@ -34,7 +34,7 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 #### Control Panel & Search
-    + Zoom In
+1. Zoom In
     ... On the vertical control panel to the left of the map, the 'zoom in' feature is indicated by the '+' button. Also, you may zoom in using your touchpad by moving your fingers outward. You can zoom in to the map for a closer look at specific cities, landmarks, parks, streets, etc. *You may drag the map around to look at different areas
     + Zoom Out
     ... On the vertical control panel to the left of the map, the 'zoom out' feature is indicated by the '-' button. Also, you may zoom out using your touchpad by moving your fingers inward. You can zoom out on the map, to access broader regions, states, countries, etc.
