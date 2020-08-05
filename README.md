@@ -1,4 +1,4 @@
-# ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png "Wanderlust Logo")
+# Wanderlust       ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png "Wanderlust Logo")
 
 ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
 
