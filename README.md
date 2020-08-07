@@ -1,9 +1,7 @@
 # Wanderlust
 
-![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
-
 <p align="center">
-  <img width="460" height="300" src="https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png" alt="Wanderlust logo">
+  <img src="https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png" alt="Wanderlust logo">
 </p>
 
 Wanderlust is a road trip planning application designed to allow a more efficient and centralized process for users to make travel plans using an interactive map.
@@ -11,6 +9,8 @@ Wanderlust is a road trip planning application designed to allow a more efficien
 This app is for restless adventurers that love taking road trips across the country. However, planning a trip can sometimes be a bit tedious and stressful because there are time and money constraints and it can involve extensive research spanning multiple sites, like accessing maps, getting directions, looking at reviews, calculating costs, and also just building your itinerary from the ground up. With this app, a user can log in to their account and make new travel plans using an interactive map created from an external Mapbox API. After creating a trip, the user can generate details, like approximate gas costs, duration, and mileage, that can be saved alongside their trip data to a personalized page where they can include additional details and build a rough itinerary of their trip. Users can also explore a community database of trips shared by other road trip enthusiasts with their ratings and reviews where they can find inspiration in other users' wanderlust. 
 
 ## How to Start the App
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
 
 1. Run `json-server -p 3000 -w trip.json` in api folder
 
