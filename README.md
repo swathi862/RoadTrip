@@ -12,7 +12,7 @@ This app is for restless adventurers that love taking road trips across the coun
 
 1. Start the app by running `npm start` in the **src** folder which will run the app in the development mode by opening http://localhost:3000 in browser. 
 
-1. You will also need to start this proxy server in a separate terminal. Follow this [link](https://github.com/swathi862/wanderlust-proxy-server) for further instructions.
+1. You will also need to start a proxy server in a separate terminal. Follow this [link](https://github.com/swathi862/wanderlust-proxy-server) for further instructions.
 
 ## Login/Register
 
