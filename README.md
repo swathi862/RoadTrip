@@ -69,6 +69,6 @@ This is the tab where all the trips that have been completed will be moved to.
 
 # Other Notes
 This project was built using the following frameworks and tools.
-+ [Create React App] (https://github.com/facebook/create-react-app)
-+ [Semantic UI] (https://react.semantic-ui.com/)
-+ [Mapbox] (https://www.mapbox.com/maps)
++ [Create React App](https://github.com/facebook/create-react-app)
++ [Semantic UI](https://react.semantic-ui.com/)
++ [Mapbox](https://www.mapbox.com/maps)
