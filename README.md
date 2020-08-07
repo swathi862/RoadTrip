@@ -10,7 +10,7 @@ This app is for restless adventurers that love taking road trips across the coun
 
 1. After making sure you are in the `/roadtrip` directory in the terminal (if not, `cd` into it), run `npm install` in the project directory in the terminal to install the necessary packages to allow the app to function properly.
 
-1. Run `json-server -p 3000 -w trip.json` in the project directory's **api** folder in order to initiate the database. These steps will let you run a json server with the trip.json which will allow all of the fetch calls in modules to interact with that data.
+1. Run `json-server -p 5002 -w trip.json` in the project directory's **api** folder in order to initiate the database. These steps will let you run a json server with the trip.json which will allow all of the fetch calls in modules to interact with that data.
 
 1. In a separate terminal window, start the app by running `npm start` which will run the app in the development mode by opening http://localhost:3000 in browser. 
 
@@ -33,7 +33,7 @@ This is the page where a user can create a trip using an interactive map, genera
 #### Navigating the Map: Control Panel & Search
 There are tools available on the interactive map to make planning the trip you'd like to go on much easier. 
 1. On the vertical control panel, located on the left side of the map, you'll find a zoom in feature (+) and a zoom out feature (-), which will allow you to zoom in and zoom out on the map to present a view detailing more specific landmarks or cities in order to see exact places you'd like to visit.
-The control panel also contains a geolocate feature- the last button on the panel-which will lets the map locate your current location.
+The control panel also contains a 'Reset North'(won't change map view) and a 'Geolocate' feature- the last button on the panel-which will lets the map locate your current location.
 + You may also use the touchpad to zoom in and out on the map. And you can drag the map around to look at different areas by holding down the left touchpad button.
 2. On the top right side of the map, you'll find a search bar that takes in input like addresses, cities, or zip codes and returns some results that best match your search text. Once you click on a result, it maps that location on the map for you to further explore. You cannot search coordinates on this search bar- it utilizes reverse geocoding.
 3. You'll find the map markers needed to plot a trip pinned in the center of the United States map. 
