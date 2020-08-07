@@ -2,7 +2,9 @@
 
 ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
 
-<div align=”center”>![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png "Wanderlust Logo")</div>
+<p align="center">
+  <img width="460" height="300" src="https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png" alt="Wanderlust logo">
+</p>
 
 Wanderlust is a road trip planning application designed to allow a more efficient and centralized process for users to make travel plans using an interactive map.
 
@@ -41,7 +43,7 @@ The control panel also contains a geolocate feature- the last button on the pane
 
 ## Explore
 
-... The 'Explore' page functions as community databse of all of the completed trips that users have voluntarily shared with a rating and review for other adventurers to view and take inspiration from. A user can find trips utilizing the search bar and select a trip view the trip's details and the rating and review left by the user who shared the trip to the page. 
+The 'Explore' page functions as community databse of all of the completed trips that users have voluntarily shared with a rating and review for other adventurers to view and take inspiration from. A user can find trips utilizing the search bar and select a trip view the trip's details and the rating and review left by the user who shared the trip to the page. 
 + By clicking on the 'Details' button on a trip, you can open up a modal that will list the trip name at the top followed by the trip destination, mileage, estimated travel time, and estimated travel cost. The modal will also include a rating out of 5 stars and a review submitted by the user who created the trip.
 + By clicking on the "Save to 'My Trips'" button on the 'Details' modal, you can add this trip to your 'My Trips' page, specifically under the 'Future Trips' tab.
 
