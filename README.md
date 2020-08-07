@@ -1,8 +1,4 @@
-# Wanderlust
-
-<p align="center">
-  <img src="https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png" alt="Wanderlust logo">
-</p>
+# <p align="center"> <img src="https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png" alt="Wanderlust logo"> </p>
 
 Wanderlust is a road trip planning application designed to allow a more efficient and centralized process for users to make travel plans using an interactive map.
 
@@ -10,16 +6,18 @@ This app is for restless adventurers that love taking road trips across the coun
 
 ## How to Start the App
 
-![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
+1. Fork this repository to create your own local repository. Run `npm install` in the project directory in the terminal to install the necessary packages to allow the app to function properly.
 
-1. Run `json-server -p 3000 -w trip.json` in api folder
+1. Run `json-server -p 3000 -w trip.json` in the project directory's **api** folder in order to initiate the database. These steps will let you run a json server with the trip.json which will allow all of the fetch calls in modules to interact with that data.
 
-1. Start the app by running `npm start` in the src folder
+1. Start the app by running `npm start` in the **src** folder which will run the app in the development mode by opening http://localhost:3000 in browser. 
 
 1. You will also need to start this proxy server in a separate terminal. Follow this [link] for further instructions.
 [link]: https://github.com/swathi862/wanderlust-proxy-server 
 
 ## Login/Register
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
 
 When the user starts the app, the first page they will see is the login/register page prompting them to press one of the two buttons.
 
