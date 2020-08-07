@@ -1,6 +1,8 @@
-# Wanderlust       ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png "Wanderlust Logo")
+# Wanderlust
 
 ![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/nav/wanderlust-logo-one.png "Wanderlust Logo")
 
 Wanderlust is a road trip planning application designed to allow a more efficient and centralized process for users to make travel plans using an interactive map.
 
