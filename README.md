@@ -4,6 +4,8 @@ Wanderlust is a road trip planning application designed to allow a more efficien
 
 This app is for restless adventurers that love taking road trips across the country. However, planning a trip can sometimes be a bit tedious and stressful because there are time and money constraints and it can involve extensive research spanning multiple sites, like accessing maps, getting directions, looking at reviews, calculating costs, and also just building your itinerary from the ground up. With this app, a user can log in to their account and make new travel plans using an interactive map created from an external Mapbox API. After creating a trip, the user can generate details, like approximate gas costs, duration, and mileage, that can be saved alongside their trip data to a personalized page where they can include additional details and build a rough itinerary of their trip. Users can also explore a community database of trips shared by other road trip enthusiasts with their ratings and reviews where they can find inspiration in other users' wanderlust. 
 
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/Home.png "Home page")
+
 ## How to Start the App
 
 1. Either fork this repository to create your own local repository or clone it down to run it. 
@@ -18,7 +20,7 @@ This app is for restless adventurers that love taking road trips across the coun
 
 ## Login/Register
 
-![alt text](https://github.com/swathi862/Wanderlust/blob/master/src/components/welcome-to-wanderlust.png "Welcome to Wanderlust Logo")
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/LoginRegister.png "Login/Register page")
 
 When the user starts the app, the first page they will see is the login/register page prompting them to press one of the two buttons.
 
@@ -28,6 +30,9 @@ When the user starts the app, the first page they will see is the login/register
 
 
 ## Plan
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/Plan.png "Plan page")
+
 This is the page where a user can create a trip using an interactive map, generate trip details- trip mileage, duration, and approximate gas cost, personalize the trip with a name and description, and add the trip to their personal **My Trips** page.
 
 #### Navigating the Map: Control Panel & Search
@@ -49,7 +54,12 @@ This section is located to the right side of the **Plan** page, beside the map, 
 
 ## Explore
 
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/Explore.png "Explore page")
+
 The **Explore** page functions as community databse of all of the completed trips that users have voluntarily shared with a rating and review for other adventurers to view and take inspiration from. A user can find trips utilizing the search bar and select a trip view the trip's details and the rating and review left by the user who shared the trip to the page. 
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/Explore%20Modal.png "Explore modal")
+
 + By clicking on the **_Details_** button on a trip, you can open up a modal that will list the trip name at the top followed by the trip destination, mileage, estimated travel time, and estimated travel cost. The modal will also include a rating out of 5 stars and a review submitted by the user who created the trip.
 + By clicking on the **_Save to 'My Trips'_** button on the _Details_ modal, you can add this trip to your **My Trips** page, specifically under the _Future Trips_ tab.
 
@@ -58,12 +68,18 @@ The **Explore** page functions as community databse of all of the completed trip
 This page saves all the trips the user has selected. The page has two tabs- a _Future Trips_ tab and a _Completed Trips_ tab. All the trips you add to this page will be under the _Future Trips_ tab.
 
 #### My 'Future Trips' tab
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/Future%20Trips.png "Future page")
+
 This is where all the trips that you add from the **Explore** page or a **Plan** page will appear.
 + By clicking on the **_Details_** button of each trip, you can open up a modal that will list the trip name at the top followed by the trip destination, mileage, estimated travel time, and estimated travel cost. The modal will also include an 'Edit' and 'Delete' button where you can edit the trip name and description or delete the trip from the page and the database, accordingly.
 
 + By clicking on the **_Completed_** button, you can add this trip to your _Completed Trips_ tab, by marking the trip as completed. The trip will no longer appear under _Future Trips_.
 
 #### My 'Completed Trips' tab
+
+![alt text](https://github.com/swathi862/Wanderlust/blob/master/images/screenshots/Completed%20Trips.png "Completed page")
+
 This is the tab where all the trips that have been completed will be moved to.
 + By clicking on the **_Details_** button of each trip, you can open up a modal that will list the trip name at the top followed by the trip destination, mileage, estimated travel time, and estimated travel cost. The modal will also include an **_Edit_** and **_Delete_** button, where you can edit the trip name and description or delete the trip from the page, accordingly.
 
