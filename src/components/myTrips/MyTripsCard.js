@@ -80,7 +80,7 @@ class MyTripsCard extends Component {
                             <Button color='red' onClick={()=> this.props.handleDelete(this.props.trip.id)}>
                                 <Icon name='trash alternate' /> Delete
                             </Button>
-                            {this.props.trip.completed === true ? <MyTripsEdit trip={this.props.trip} handleRefresh={this.props.handleRefresh}/> : "" }
+                            {this.props.trip.completed === false ? <MyTripsEdit trip={this.props.trip} handleRefresh={this.props.handleRefresh}/> : "" }
                         </Modal.Actions>
                 </Modal>
                 
